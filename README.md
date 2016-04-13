@@ -135,7 +135,7 @@ end
   Now go back to the Vagrant ssh session and type ```sudo service apache2 restart```
 
 - *Step 3 (Setting up directory structure) :*
-  Here is the beauty of Vagrant, make a directory called ```home``` in the ```/vagrant``` directory so it should look like this ```/vagrant/home/``` (Note: this is on your machine's terminal not an ssh session in the Vagrant machine). Now it is important to note some apache server commands
+  Here is the beauty of Vagrant, make a directory called ```home``` in the ```/vagrant``` directory so it should look like this ```/vagrant/home/```. You should also make a ```/home``` directory in your vagrant ssh session. All of the files you want to serve on the localhost will be placed in the ```/vagrant/home``` directory on your own machine. Now it is important to note some apache server commands
   ```
   __________________________________________________________________________________________________________________
   Command                                   | What does it do?
