@@ -22,6 +22,8 @@ class HelloWorld {
       + "<h1 style = 'color:%s'> Hello World from Java @ %s </h1>"
       + "</body> "
       +"</html>", backgroundColor , textColor ,  timeStamp);
+      
+    System.out.println("Content-Type: text/html");
     System.out.print(document);
   }
 }
