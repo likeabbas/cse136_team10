@@ -1,1 +1,1 @@
-#!/usr/bin/java helloWorld
+#!/usr/bin/java HelloWorld
