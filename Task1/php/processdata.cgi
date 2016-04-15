@@ -9,7 +9,7 @@ echo('<html><head>
 $method = $_SERVER['REQUEST_METHOD'];
 echo $method;
 echo "<br/>";
-if ($method = "GET"){
+if ($method=="GET"){
 	if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
 		echo "test get";
 		$num = $_GET['magicnumber'];
@@ -27,7 +27,7 @@ if ($method = "GET"){
 	}
 }
 else{
-	if($method = "POST"){
+	if($method=="POST"){
 		if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['magicnumber'])){
 		echo "test post";
 		$num = $_POST['magicnumber'];
