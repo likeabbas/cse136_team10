@@ -5,7 +5,9 @@ echo('<html><head>
 	<title>Process Data in PHP</title>
 </head>
 <body>');
-echo "test";
+echo "test<br/>";
+echo $_ENV['REQUEST_METHOD'];
+echo "<br/>";
 echo $_GET['username'];
 echo $_GET['password'];
 echo $_GET['magicnumber'];
