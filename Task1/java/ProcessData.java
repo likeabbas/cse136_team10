@@ -3,12 +3,12 @@ import java.io.*;
 
 class ProcessData{
 
-  static void toHTML(String content){
+  /*static void toHTML(String content){
     String html = String.format("<!doctype html><html><body><head><title>Process Data Java</title></head>%s</body></html>",content);
 
-    System.out.println("Content-Type: text/html\n");
+
     System.out.println(html);
-  }
+  }*/
   public static void main(String[] args){
 
     Map<String, String> formData = new HashMap <String, String>();
@@ -48,8 +48,8 @@ class ProcessData{
     for(int i = 0; i < magicNum; i++){
       htmlContent = htmlContent + ("<h1> Hello " + formData.get("username") + " with a password of " + formData.get("password") + " </h1>");
     }*/
-
-    toHTML("Hello world");
+    System.out.println("Content-Type: text/html\n");
+    System.out.println("Hello world");
 
   }
 }
