@@ -24,6 +24,9 @@ class EnvMap{
 		System.out.println("<table>");
 		System.out.println("<tr><td class = 'header'>Variable Name</td><td class ='header'>Value</td></tr>");
 
+		Collections.sort(browser);
+		Collections.sort(server);
+
 		for(String browserName : browser){
 			String row = String.format("<tr><td> %s </td><td> %s </td></tr>",browserName, env.get(browserName));
 			System.out.println(row);
