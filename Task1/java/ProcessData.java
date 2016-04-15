@@ -13,8 +13,8 @@ class ProcessData{
 
     Map<String, String> formData = new HashMap <String, String>();
     Map<String, String> env = System.getenv();
-    String data = "username=danielkong&password=helloworld&magicnumber=5";
-    //String data = "";
+    //String data = "username=danielkong&password=helloworld&magicnumber=5";
+    String data = "";
     String htmlContent = "";
     if(env.get("REQUEST_METHOD") == "GET"){
        data = env.get("QUERY_STRING");
