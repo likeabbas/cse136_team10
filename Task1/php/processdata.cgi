@@ -7,7 +7,8 @@ echo('<html><head>
 <body>');
 
 $method = $_SERVER['REQUEST_METHOD'];
-
+print_r($_POST);
+echo "<br/>";
 if ($method=="GET"){
 	$qr = $_SERVER['QUERY_STRING'];
 	$qrexplode = explode("&", $qr);
