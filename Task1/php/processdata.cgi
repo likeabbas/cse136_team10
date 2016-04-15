@@ -13,14 +13,15 @@ if ($method=="GET"){
 	$qrexplode = explode("&", $qr);
 	$coupleUser = $qrexplode[0];
 	$name = explode("=",$coupleUser)[1];
-	echo $name;
 	$couplePassword = $qrexplode[1];
+	$pw = explode("=", $couplePassword)[1];
 	$coupleNumber = $qrexplode[2];
-	if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
-		echo "test get";
-		$num = $_GET['magicnumber'];
-		$name = $_GET['username'];
-		$pw = $_GET['password'];
+	$num = explode("=",$coupleNumber)[1];
+	//if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
+	//	echo "test get";
+	//	$num = $_GET['magicnumber'];
+	//	$name = $_GET['username'];
+	//	$pw = $_GET['password'];
 		$res = "Hello ".$name." with a password of ".$pw."!";
 			for($k = 1; $k<=$num ; $k++){
 				echo "test for get";
