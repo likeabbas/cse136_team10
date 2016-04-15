@@ -6,10 +6,10 @@ echo('<html><head>
 </head>
 <body>');
 
-	if (isset($_GET['username']) && isset($_GET['userpassword']) && isset($_GET['magicnumber'])){
+	if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
 		$num = $_GET['magicnumber'];
 		$name = $_GET['username'];
-		$pw = $_GET['userpassword'];
+		$pw = $_GET['password'];
 		$res = "Hello ".$name." with a password of ".$pw."!";
 			for($k = 1; $k<=$num ; $k++){
 			echo $res;
@@ -17,10 +17,10 @@ echo('<html><head>
 			}
 	}
 	else{
-		if (isset($_POST['username']) && isset($_POST['userpassword']) && isset($_POST['magicnumber'])){
+		if (isset($_POST['username']) && isset($_POST['password']) && isset($_POST['magicnumber'])){
 		$num = $_POST['magicnumber'];
 		$name = $_POST['username'];
-		$pw = $_POST['userpassword'];
+		$pw = $_POST['password'];
 		$res = "Hello ".$name." with a password of ".$pw."!";
 			for($k = 1; $k<=$num ; $k++){
 			echo $res;
