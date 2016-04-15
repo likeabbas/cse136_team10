@@ -34,6 +34,9 @@ if ($method=="GET"){
 }
 else{
 	if($method=="POST"){
+		echo $_POST['username'];
+		echo $_POST['password'];
+		echo $_POST['magicnumber'];
 		if ($_POST['username'] && $_POST['password'] && $_POST['magicnumber']){
 		echo "test post";
 		$num = $_POST['magicnumber'];
