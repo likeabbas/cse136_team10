@@ -2,12 +2,18 @@ import java.util.*;
 import java.io.*;
 
 class GetPost{
+
+  static void toHTML(String content){
+    String html = String.format("<Content-Type: text/html>\n\n <!doctype html><html><body><head><title>Process Data Java</title></head>%s</body></html>",content);
+    System.out.println(html);
+  }
   public static void main(String[] args){
 
     Map<String, String> formData = new HashMap <String, String>();
     Map<String, String> env = System.getenv();
     //String data = "username=danielkong&password=helloworld&magicnumber=5";
     String data = "";
+    String htmlContent = "";
     if(env.get("REQUEST_METHOD") == "GET"){
        data = env.get("QUERY_STRING");
     }
@@ -19,7 +25,7 @@ class GetPost{
       }
     }
     else{
-      System.out.println("<h1>There was no GET or POST request submitted through a form!</h1>");
+      toHTML("<h1>There was no GET or POST request submitted through a form!</h1>");
       return;
     }
 
@@ -29,17 +35,19 @@ class GetPost{
       String[] fields = formField[i].split("=");
       formData.put(fields[0],fields[1]);
     }
-
+    int magicNum;
     try{
-      int magicNum = Integer.parseInt(formData.get("magicnumber"));
+      magicNum = Integer.parseInt(formData.get("magicnumber"));
     }catch(NumberFormatException e){
-      System.out.println("<h1> Error parsing magic number </h1>");
+      toHTML("<h1> Error parsing magic number </h1>");
       return;
     }
 
     for(int i = 0; i < magicNum; i++){
-      System.out.println("<h1> Hello " + formData.get("username") + " with a password of " + formData.get("password") + " </h1>");
+      htmlContent = htmlContent + ("<h1> Hello " + formData.get("username") + " with a password of " + formData.get("password") + " </h1>");
     }
+
+    toHTML(htmlContent);
 
   }
 }
