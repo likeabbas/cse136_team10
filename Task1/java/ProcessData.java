@@ -50,7 +50,7 @@ class ProcessData{
       htmlContent = htmlContent + ("<h1> Hello " + formData.get("username") + " with a password of " + formData.get("password") + " </h1>");
     }
 
-    toHTML("Hello world");
+    toHTML(htmlContent);
 
   }
 }
