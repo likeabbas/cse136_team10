@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-echo('Content-Type: text/plain\n\n');
+echo("Content-Type: text/html\n\n");
 echo('<html>
 <head>
 	
