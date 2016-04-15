@@ -15,7 +15,7 @@ class EnvMap{
 				server.add(envName);
 			}
 		}
-		System.out.println("Content-Type: text/html");
+		System.out.print("Content-Type: text/html\n");
 		System.out.println("<h2>Browser Variables </h2>");
 		System.out.println("<table>");
 		System.out.println("<tr><td class = 'header'>Variable Name</td><td class ='header'>Value</td></tr>");
