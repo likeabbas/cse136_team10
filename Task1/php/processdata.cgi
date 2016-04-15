@@ -10,21 +10,19 @@ echo('<html><head>
 		$num = $_GET['magicnumber'];
 		$name = $_GET['username'];
 		$pw = $_GET['userpassword'];
-		
-		for($k = 1; $k<=$num ; $k++){
-		$res = "Hello ".$name." with a password of ".$pw ."!";
-		echo $res;
-		echo "<br/>";
-		}
+		$res = "Hello ".$name." with a password of ".$pw."!";
+			for($k = 1; $k<=$num ; $k++){
+			echo $res;
+			echo "<br/>";
+			}
 	}
 	else{
 		if (isset($_POST['username']) && isset($_POST['userpassword']) && isset($_POST['magicnumber'])){
 		$num = $_POST['magicnumber'];
 		$name = $_POST['username'];
 		$pw = $_POST['userpassword'];
-		
+		$res = "Hello ".$name." with a password of ".$pw."!";
 			for($k = 1; $k<=$num ; $k++){
-			$res = "Hello ".$name." with a password of ".$pw ."!";
 			echo $res;
 			echo "<br/>";
 			}
@@ -33,6 +31,5 @@ echo('<html><head>
 			echo "The form has not been filled up properly.";
 		}
 	}
-echo('</body>
-</html>');
+echo("</body></html>");
 ?>
