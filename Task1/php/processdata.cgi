@@ -37,7 +37,7 @@ else{
 		echo $_POST['username'];
 		echo $_POST['password'];
 		echo $_POST['magicnumber'];
-		if ($_POST['username'] && $_POST['password'] && $_POST['magicnumber']){
+		if (true){
 		echo "test post";
 		$num = $_POST['magicnumber'];
 		$name = $_POST['username'];
