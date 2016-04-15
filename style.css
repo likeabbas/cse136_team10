@@ -30,7 +30,7 @@ nav {
   align-items: center;
   /* Title style */ }
   nav h1 {
-    font-size: 72px;
+    font-size: 62px;
     font-family: "Open Sans", sans-serif;
     color: white;
     padding-left: 22px;
@@ -91,7 +91,7 @@ img.circle {
 .tm .photo {
   height: 250px;
   display: block;
-  margin-top: 48px;
+  margin-top: 12px;
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 22px; }

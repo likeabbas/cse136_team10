@@ -28,6 +28,7 @@ for key in envVars.keys():
 print '<h2>Browser Variables</h2>'
 print '<table>'
 print '<tr><td class="header">Variable Name</td><td class="header">Value</td></tr>'
+browserVarsKeys.sort()
 for key in browserVarsKeys:
     print '<tr><td>' + str( key ) + '</td><td>' + str( envVars[ key ] ) + '</td></tr>'
 print '</table>'
@@ -35,6 +36,7 @@ print '</table>'
 print '<h2>Server Variables</h2>'
 print '<table>'
 print '<tr><td class="header">Variable Name</td><td class="header">Value</td></tr>'
+serverVarsKeys.sort()
 for key in serverVarsKeys:
     print '<tr><td>' + str( key ) + '</td><td>' + str( envVars[ key ] ) + '</td></tr>'
 print '</table>'
