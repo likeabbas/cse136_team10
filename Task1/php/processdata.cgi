@@ -17,7 +17,7 @@ if ($method=="GET"){
 	$pw = explode("=", $couplePassword)[1];
 	$coupleNumber = $qrexplode[2];
 	$num = explode("=",$coupleNumber)[1];
-	//if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
+	if ($name!="" && $num!="" && $pw!=""){
 	//	echo "test get";
 	//	$num = $_GET['magicnumber'];
 	//	$name = $_GET['username'];
