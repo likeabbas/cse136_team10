@@ -1,6 +1,6 @@
 #!/usr/bin/env php
 <?php
-echo('Content-Type: text/html\n\n');
+echo("Content-Type: text/html\n\n");
 echo('<html>');
 echo('<head>
 	<title>Hello World in PHP</title>
