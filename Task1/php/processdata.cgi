@@ -10,6 +10,7 @@ $method = $_SERVER['REQUEST_METHOD'];
 echo $method;
 echo "<br/>";
 if ($method=="GET"){
+	print_r($_GET);
 	if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
 		echo "test get";
 		$num = $_GET['magicnumber'];
