@@ -5,13 +5,13 @@ echo('<html><head>
 	<title>Process Data in PHP</title>
 </head>
 <body>');
-echo $_SERVER;
+print_r($_SERVER);
 echo "<br/>";
 $method = $_SERVER['REQUEST_METHOD'];
 echo $method;
 echo "<br/>";
 if ($method=="GET"){
-	echo $_GET;
+	print_r($_GET);
 	echo "<br/>";
 	if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
 		echo "test get";
