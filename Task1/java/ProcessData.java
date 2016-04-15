@@ -4,7 +4,9 @@ import java.io.*;
 class ProcessData{
 
   static void toHTML(String content){
-    String html = String.format("<Content-Type: text/html>\n\n <!doctype html><html><body><head><title>Process Data Java</title></head>%s</body></html>",content);
+    String html = String.format("<!doctype html><html><body><head><title>Process Data Java</title></head>%s</body></html>",content);
+
+    System.out.println( "Content-Type: text/html\n");
     System.out.println(html);
   }
   public static void main(String[] args){
