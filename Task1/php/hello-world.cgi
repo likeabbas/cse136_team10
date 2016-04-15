@@ -10,7 +10,7 @@ $color = array('aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'mar
 $rd = floor(rand(0,17));
 echo('<style>
 	body{background-color:".$color[$rd].'};
-	</style>'');
+	</style>');
 date_default_timezone_set('America/Los_Angeles');
 $date = date('m/d/Y h:i:s a', time());
 $res = '<h1>Hello World from PHP @'.$date.'</h1>';
