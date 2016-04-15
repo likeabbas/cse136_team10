@@ -5,15 +5,14 @@ class ProcessData{
 
   static void toHTML(String content){
     String html = String.format("<!doctype html><html><body><head><title>Process Data Java</title></head>%s</body></html>",content);
-
     System.out.print("Content-Type: text/html\n\n");
     System.out.println(html);
   }
+
   public static void main(String[] args){
 
     Map<String, String> formData = new HashMap <String, String>();
     Map<String, String> env = System.getenv();
-    //String data = "username=danielkong&password=helloworld&magicnumber=5";
     String data = "";
     String htmlContent = "";
 
@@ -28,7 +27,7 @@ class ProcessData{
         data = data + outputLine;
       }
     }catch(IOException i){
-      toHTML("<h1>Error Parsing Post Data </h1>");
+      toHTML("<h1> Sorry, there was an error parsing post data </h1>");
     }
     }
     else{
@@ -46,14 +45,13 @@ class ProcessData{
     try{
       magicNum = Integer.parseInt(formData.get("magicnumber"));
     }catch(NumberFormatException e){
-      toHTML("<h1> Error parsing magic number </h1>");
+      toHTML("<h1> Sorry, There was an error parsing the magic number </h1>");
       return;
     }
 
     for(int i = 0; i < magicNum; i++){
       htmlContent = htmlContent + ("<h1> Hello " + formData.get("username") + " with a password of " + formData.get("password") + " </h1>");
     }
-
     toHTML(htmlContent);
 
   }
