@@ -6,7 +6,11 @@ echo('<html><head>
 </head>
 <body>');
 echo $_GET['username'];
-echo $_GET['username'];
+echo $_GET['password'];
+echo $_GET['magicnumber'];
+echo $_POST['username'];
+echo $_POST['password'];
+echo $_POST['magicnumber'];
 	if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
 		$num = $_GET['magicnumber'];
 		$name = $_GET['username'];
