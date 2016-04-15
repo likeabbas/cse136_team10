@@ -17,15 +17,19 @@ class ProcessData{
     String data = "";
     String htmlContent = "";
 
-    if(env.get("REQUEST_METHOD").toString().toLowerCase().equals("get")){
+    if(env.get("REQUEST_METHOD").toString().equals("GET")){
        data = env.get("QUERY_STRING");
     }
-    else if(env.get("REQUEST_METHOD").toString().toLowerCase().equals("post")){
-      Console console = System.console();
-      String line;
-      while((line = console.readLine()) != null){
-        data = data + line;
+    else if(env.get("REQUEST_METHOD").toString().equals("POST")){
+      DataInput postOutput = new DataInputStream(System.in);
+      String outputLine;
+      try{
+      while((outputLine = postOutput.readLine()) != null){
+        data = data + outputLine;
       }
+    }catch(IOException i){
+      toHTML("<h1>Error Parsing Post Data </h1>");
+    }
     }
     else{
       toHTML("<h1>There was no GET or POST request submitted through a form!</h1>");
