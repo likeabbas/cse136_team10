@@ -5,7 +5,8 @@ echo('<html><head>
 	<title>Process Data in PHP</title>
 </head>
 <body>');
-
+echo $_SERVER;
+echo "<br/>";
 $method = $_SERVER['REQUEST_METHOD'];
 echo $method;
 echo "<br/>";
