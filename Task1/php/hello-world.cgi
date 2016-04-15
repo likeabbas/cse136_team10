@@ -9,7 +9,7 @@ echo('<head>
 $color = array('aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'purple', 'red', 'silver', 'teal', 'white',  'yellow');
 $rd = floor(rand(0,17));
 echo('<style>
-	body{background-color:".$color[$rd].'};
+	body{background-color:'.$color[$rd].'};
 	</style>');
 date_default_timezone_set('America/Los_Angeles');
 $date = date('m/d/Y h:i:s a', time());
