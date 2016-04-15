@@ -6,7 +6,7 @@ class ProcessData{
   static void toHTML(String content){
     String html = String.format("<!doctype html><html><body><head><title>Process Data Java</title></head>%s</body></html>",content);
 
-    System.out.println( "Content-Type: text/html\n");
+    System.out.println("Content-Type: text/html\n");
     System.out.println(html);
   }
   public static void main(String[] args){
@@ -31,7 +31,7 @@ class ProcessData{
       return;
     }*/
 
-    String[] formField = data.split("&");
+    /*String[] formField = data.split("&");
 
     for(int i = 0; i < formField.length; i++){
       String[] fields = formField[i].split("=");
@@ -47,9 +47,9 @@ class ProcessData{
 
     for(int i = 0; i < magicNum; i++){
       htmlContent = htmlContent + ("<h1> Hello " + formData.get("username") + " with a password of " + formData.get("password") + " </h1>");
-    }
+    }*/
 
-    toHTML(htmlContent);
+    toHTML("Hello world");
 
   }
 }
