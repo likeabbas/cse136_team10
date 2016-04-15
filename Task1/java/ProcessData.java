@@ -16,12 +16,11 @@ class ProcessData{
     //String data = "username=danielkong&password=helloworld&magicnumber=5";
     String data = "";
     String htmlContent = "";
-    String data2 = env.get("REQUEST_METHOD");
-    System.out.println("<h1>" + data2 + "</h1>");
-    if(env.get("REQUEST_METHOD") == "GET"){
+
+    if(env.get("REQUEST_METHOD").toString().toLowerCase().equals("get")){
        data = env.get("QUERY_STRING");
     }
-    else if(env.get("REQUEST_METHOD") == "POST") {
+    else if(env.get("REQUEST_METHOD").toString().toLowerCase().equals("post")){
       Console console = System.console();
       String line;
       while((line = console.readLine()) != null){
