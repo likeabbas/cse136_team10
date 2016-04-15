@@ -1,4 +1,5 @@
 #!/usr/bin/env php
+
 <?php
 echo("Content-Type: text/plain\n\n");
 echo("<html><head><title>Get vs Post methods in forms PHP</title>
