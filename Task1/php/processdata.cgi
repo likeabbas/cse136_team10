@@ -8,6 +8,7 @@ echo('<html><head>
 
 $method = $_SERVER['REQUEST_METHOD'];
 echo $method;
+echo "<br/>";
 if ($method = "GET"){
 	if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
 		echo "test get";
@@ -22,7 +23,7 @@ if ($method = "GET"){
 			}
 	}
 	else{
-		echo "The form has not been filled up properly.";
+		echo "The form GET has not been filled up properly.";
 	}
 }
 else{
@@ -40,7 +41,7 @@ else{
 			}
 		}
 		else{
-			echo "The form has not been filled up properly.";
+			echo "The form POST has not been filled up properly.";
 		}
 	}
 }
