@@ -23,7 +23,7 @@ class HelloWorld {
       + "</body> "
       +"</html>", backgroundColor , textColor ,  timeStamp);
 
-    System.out.print("Content-Type: text/html\n");
+    System.out.print("Content-Type: text/html\n\n");
     System.out.print(document);
   }
 }
