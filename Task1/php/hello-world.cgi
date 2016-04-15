@@ -10,13 +10,13 @@ echo('<head>
 
 $color = array('aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'purple', 'red', 'silver', 'teal', 'white',  'yellow');
 $rd = floor(rand(0,17));
-echo("<style>
-	body{background-color:".$color[$rd]."};
-	</style>");
+echo('<style>
+	body{background-color:'.$color[$rd].'};
+	</style>');
 date_default_timezone_set('America/Los_Angeles');
 $date = date('m/d/Y h:i:s a', time());
 $res = "Hello World from PHP @ ".$date;
-echo("<body>")
+echo("<body>");
 echo('<h1>'.$res.'</h1>');
 echo('</body></html>');
 ?>
