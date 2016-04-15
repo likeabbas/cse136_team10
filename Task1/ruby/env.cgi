@@ -11,6 +11,9 @@ ENV.each do |i, v|
   end
 end
 
+clientVars = clientVars.sort.to_h
+serverVars = serverVars.sort.to_h
+
 print "Content-Type: text/html charset=UTF8 \n\n"
 puts "<!DOCTYPE html>"
 print "<html><head>"
