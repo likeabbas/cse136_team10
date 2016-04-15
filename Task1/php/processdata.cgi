@@ -5,14 +5,17 @@ echo('<html><head>
 	<title>Process Data in PHP</title>
 </head>
 <body>');
-print_r($_SERVER);
-echo "<br/>";
+
 $method = $_SERVER['REQUEST_METHOD'];
-echo $method;
-echo "<br/>";
+
 if ($method=="GET"){
-	echo($_SERVER['QUERY_STRING']);
-	echo "<br/>";
+	$qr = $_SERVER['QUERY_STRING'];
+	$qrexplode = explode("&", $qr);
+	$coupleUser = $qrexplode[0];
+	$name = explode("=",$coupleUser)[1];
+	echo $name;
+	$couplePassword = $qrexplode[1];
+	$coupleNumber = $qrexplode[2];
 	if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
 		echo "test get";
 		$num = $_GET['magicnumber'];
