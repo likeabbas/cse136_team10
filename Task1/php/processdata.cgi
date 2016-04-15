@@ -13,6 +13,8 @@ echo "<br/>";
 if ($method=="GET"){
 	print_r($_GET);
 	echo "<br/>";
+	print_r($_REQUEST);
+	echo "<br/>";
 	if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
 		echo "test get";
 		$num = $_GET['magicnumber'];
