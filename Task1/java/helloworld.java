@@ -5,7 +5,7 @@ class HelloWorld {
   public static void main(String[] args) {
 
     //Initialize Date and colors
-    String timeStamp = "April";//(new java.util.Date()).toLocaleString();
+    String timeStamp = (new java.util.Date()).toLocaleString();
     String[] colors  = {"aqua", "black", "blue", "fuchsia", "gray", "green", "lime",
         "maroon", "navy", "olive","purple", "red", "silver", "teal", "white", "yellow"};
     String textColor = "black";
