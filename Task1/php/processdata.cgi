@@ -1,7 +1,6 @@
 #!/usr/bin/env php
-
 <?php
-echo("Content-Type: text/plain\n\n");
+echo("Content-Type: text/html\n\n");
 echo('<html><head>
 	<title>Process Data in PHP</title>
 </head>
@@ -34,8 +33,6 @@ echo('<html><head>
 			echo "The form has not been filled up properly.";
 		}
 	}
-	
-
 echo('</body>
 </html>');
 ?>
