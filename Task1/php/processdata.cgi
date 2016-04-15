@@ -6,7 +6,7 @@ echo('<html><head>
 </head>
 <body>');
 echo "test<br/>";
-print_r($_ENV);
+print_r($_ENV['USER_NAME']);
 echo "<br/>";
 echo htmlspecialchars($_GET['username']);
 echo $_GET['password'];
