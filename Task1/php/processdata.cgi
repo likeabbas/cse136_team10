@@ -24,8 +24,7 @@ if ($method=="GET"){
 	//	$pw = $_GET['password'];
 		$res = "Hello ".$name." with a password of ".$pw."!";
 			for($k = 1; $k<=$num ; $k++){
-				echo "test for get";
-			echo $res;
+			echo "<h2>".$res."</h2>";
 			echo "<br/>";
 			}
 	}
