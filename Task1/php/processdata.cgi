@@ -5,7 +5,8 @@ echo('<html><head>
 	<title>Process Data in PHP</title>
 </head>
 <body>');
-
+echo $_GET['username'];
+echo $_GET['username'];
 	if (isset($_GET['username']) && isset($_GET['password']) && isset($_GET['magicnumber'])){
 		$num = $_GET['magicnumber'];
 		$name = $_GET['username'];
