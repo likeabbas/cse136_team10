@@ -28,10 +28,10 @@ class ProcessData{
         data = data + line;
       }
     }
-    /*else{
+    else{
       toHTML("<h1>There was no GET or POST request submitted through a form!</h1>");
       return;
-    }*/
+    }
 
     String[] formField = data.split("&");
 
