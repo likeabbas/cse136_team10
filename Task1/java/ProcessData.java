@@ -16,6 +16,8 @@ class ProcessData{
     //String data = "username=danielkong&password=helloworld&magicnumber=5";
     String data = "";
     String htmlContent = "";
+    System.out.println(env.get("REQUEST_METHOD"));
+    
     if(env.get("REQUEST_METHOD") == "GET"){
        data = env.get("QUERY_STRING");
     }
