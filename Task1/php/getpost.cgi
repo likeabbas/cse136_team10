@@ -12,11 +12,11 @@ echo("<form action='processdata.cgi' method='get'>
 </form>");
 
 echo("<h1>Post Form</h1>");
-echo("<form action='processdata.cgi' method='get'>
+echo("<form action='processdata.cgi' method='post'>
 <input type='text' name='username' placeholder='Username'>
 <input type='password' name='password' placeholder='Password'>
 <input type='number' name='magicnumber' placeholder='Magic Number'>
-<input type='submit' value='Submit">
+<input type='submit' value='Submit'>
 </form>");
 echo("</body></html>");
 ?>
