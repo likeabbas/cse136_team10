@@ -21,7 +21,7 @@ class HelloWorld {
 
     String backgroundColor  = colors[randomNum];
 
-    if(backgroundColor == "black" || backgroundColor == "navy") textColor = "white";
+    if(backgroundColor == "black" || backgroundColor == "navy" || backgroundColor == "blue") textColor = "white";
     String document = String.format("<!doctype html> \n"
       + "<body style = 'background-color: %s'>"
       + "<h1 style = 'color:%s'> Hello World from Java @ %s </h1>"
