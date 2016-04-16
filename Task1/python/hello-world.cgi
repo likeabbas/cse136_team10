@@ -59,9 +59,9 @@ colors = {
 }
 color = colors[ randNum ]()
 
-hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
+hour = int(datetime.datetime.strftime( datetime.datetime.now(), '%H'))
 
-hour = int(hour) - 7
+hour = hour - 7
 if hour < 0:
   hour = 24 + hour
 
