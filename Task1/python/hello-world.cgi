@@ -61,10 +61,9 @@ color = colors[ randNum ]()
 
 hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
 monthYear = datetime.datetime.strftime( datetime.datetime.now(), '%a, %d %b %Y')
-
-if int(hour) - 7 < 0:
-  subtract = int(hour) - 7
-  hour = 24 + subtract
+hour = hour - 7
+if hour < 0:
+  hour = 24 + hour
 
 ampm = ''
 
