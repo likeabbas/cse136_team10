@@ -94,8 +94,8 @@ if hour < 0:
 
 minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
 time =  day + ', ' + date + ' ' + monthYear + ' ' + str( hour ) + ':' + minsec
-#hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
 
+#hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
 #today = datetime.datetime.now()
 #today = str(today.strftime('%a, %d %b %Y' + hour + ':%M:%S'))
 
@@ -103,5 +103,5 @@ print '<style>'
 print 'body{ background-color: ' + color + ' }'
 if randNum == 2 or randNum == 8 or randNum == 16:
     print 'h1{ color: white }'
-print '</style><body><h1>Hello World from Python @ ' + time + '</h1>'
+print '</style><body><h1>Hello World from Python @ ' + str(time) + '</h1>'
 print '</body></html>'
