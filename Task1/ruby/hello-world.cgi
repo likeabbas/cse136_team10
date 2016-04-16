@@ -2,6 +2,8 @@
 
 colors = ["aqua", "black", "blue", "fuchsia", "gray", "green", "lime", "maroon", "navy", "olive", "purple", "red", "silver", "teal", "white", "yellow"]
 col = colors.sample
+print col
+print '<br/>'
 if(col=='black' || col=='navy' || col=='purple' || col=='red')
    print "<style>body{background-color: #{col} ; color:white;}</style>"
 else
