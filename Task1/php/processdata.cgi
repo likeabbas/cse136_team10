@@ -6,6 +6,10 @@ echo('<html><head>
 </head>
 <body>');
 
+function convertFromQS($queryString){
+
+
+}
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method=="GET"){
@@ -35,9 +39,18 @@ if ($method=="GET"){
 else{
 	if($method=="POST"){
 		$entityBody = stream_get_contents(STDIN);
-		echo $entityBody;
-		if (true){
-		echo "test post";
+
+		$array = explode($entityBody, "&");
+		$formUser = $array[0];
+		$formPw = $array[1];
+		$formNum = $array[2];
+
+		$name = explode("=",$formUser)[1];
+		$pw = explode("=", $formPw)[1];
+		$num = explode("=",$formNum)[1];
+
+		if ($name != "" && $num!="" && $pw!=""){
+		//echo "test post";
 		$num = $_POST['magicnumber'];
 		$name = $_POST['username'];
 		$pw = $_POST['password'];
