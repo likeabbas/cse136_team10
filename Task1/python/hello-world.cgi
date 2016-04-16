@@ -57,13 +57,13 @@ colors = {
     15: fifteen,
     16: sixteen,
 }
-daysArr [0] = 'Sun'
-daysArr [1] = 'Mon'
-daysArr [2] = 'Tue'
-daysArr [3] = 'Wed'
-daysArr [4] = 'Thu'
-daysArr [5] = 'Fri'
-daysArr [6] = 'Sat'
+#daysArr [0] = 'Sun'
+#daysArr [1] = 'Mon'
+#daysArr [2] = 'Tue'
+#daysArr [3] = 'Wed'
+#daysArr [4] = 'Thu'
+#daysArr [5] = 'Fri'
+#daysArr [6] = 'Sat'
 
 color = colors[ randNum ]()
 
