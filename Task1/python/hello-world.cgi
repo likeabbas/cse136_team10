@@ -59,8 +59,12 @@ colors = {
 }
 color = colors[ randNum ]()
 
-#hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-#mpm = ''
+hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
+if int(hour) - 7 < 0
+  subtract = int(hour) - 7
+  hour = 24 + subtract
+
+ampm = ''
 #if 0 <= int(hour) < 12:
 #    hour = 12
 #    ampm = 'am'
@@ -68,19 +72,17 @@ color = colors[ randNum ]()
 #    hour = ( int( hour ) % 12 ) + 1
 #    ampm = 'pm'
 
-#minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
-#time =  str( hour ) + ':' + minsec + ampm */
-hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-if int(hour) - 7 < 0
-  subtract = int(hour) - 7
-  hour = 24 + subtract
+minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
+time =  str( hour ) + ':' + minsec
+#hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
 
-today = datetime.datetime.now()
-today = str(today.strftime('%a, %d %b %Y' + hour + ':%M:%S'))
+
+#today = datetime.datetime.now()
+#today = str(today.strftime('%a, %d %b %Y' + hour + ':%M:%S'))
 
 print '<style>'
 print 'body{ background-color: ' + color + ' }'
 if randNum == 2 or randNum == 8 or randNum == 16:
     print 'h1{ color: white }'
-print '</style><body><h1>Hello World from Python @ ' + today + '</h1>'
+print '</style><body><h1>Hello World from Python @ ' + time + '</h1>'
 print '</body></html>'
