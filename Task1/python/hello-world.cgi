@@ -68,19 +68,15 @@ daysArr [6] = 'Sat'
 color = colors[ randNum ]()
 
 hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-day = datetime.datetime.strftime( datetime.datetime.now(), '%a')
-date = datetime.datetime.strftime( datetime.datetime.now(), '%d')
-monthYear = datetime.datetime.strftime( datetime.datetime.now(), '%b %Y')
+#day = datetime.datetime.strftime( datetime.datetime.now(), '%a')
+#date = datetime.datetime.strftime( datetime.datetime.now(), '%d')
+#monthYear = datetime.datetime.strftime( datetime.datetime.now(), '%b %Y')
 
 #ampm = ''
 
 subtract = int(hour) - 7
 if subtract < 0:
   hour = 24 + subtract
-  dateNum = datetime.datetime.strftime( datetime.datetime.now(), '%w')
-  if(dateNum-1 < 0):
-    dateNum = 6
-  day = daysArr[dayNum-1]
 
 #if 0 <= int(hour) < 12:
 #    hour = 12
@@ -90,7 +86,7 @@ if subtract < 0:
 #    ampm = 'pm'
 
 minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
-time =  str(day) + ', ' + str(date) + ' ' + monthYear + str( hour ) + ':' + minsec
+time =  str( hour ) + ':' + minsec
 print '<style>'
 print 'body{ background-color: ' + color + ' }'
 if randNum == 2 or randNum == 8 or randNum == 16:
