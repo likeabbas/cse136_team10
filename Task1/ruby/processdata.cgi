@@ -4,7 +4,7 @@ require 'cgi'
 cgi = CGI.new
 userName = cgi['username']
 userPassword = cgi['userpassword']
-magicNumber = cgi['magicnumber']
+magicNumber = Integer(cgi['magicnumber'])
 
 puts cgi.header("type" => "text/html", "cache_control" => "no-cache, no-store")
 
