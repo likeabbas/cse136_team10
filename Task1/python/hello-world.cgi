@@ -60,11 +60,12 @@ colors = {
 color = colors[ randNum ]()
 
 hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-if int(hour) - 7 < 0
-  subtract = int(hour) - 7
-  hour = 24 + subtract
+#if int(hour) - 7 < 0
+  #subtract = int(hour) - 7
+  #hour = 24 + subtract
 
 ampm = ''
+
 #if 0 <= int(hour) < 12:
 #    hour = 12
 #    ampm = 'am'
@@ -75,7 +76,6 @@ ampm = ''
 minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
 time =  str( hour ) + ':' + minsec
 #hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-
 
 #today = datetime.datetime.now()
 #today = str(today.strftime('%a, %d %b %Y' + hour + ':%M:%S'))
