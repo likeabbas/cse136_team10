@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 
 colors = ["aqua", "black", "blue", "fuchsia", "gray", "green", "lime", "maroon", "navy", "olive", "purple", "red", "silver", "teal", "white", "yellow"]
-col = colors.sample
+col = {colors.sample}
 print col
 #print '<br/>'
 #if(col=='black' || col=='navy' || col=='purple' || col=='red')
