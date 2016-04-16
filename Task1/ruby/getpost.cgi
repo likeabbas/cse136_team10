@@ -18,13 +18,13 @@ cgi.out{
             cgi.br +
             cgi.submit
          }
-         cgi.form{"\n"+
-            cgi.hr +
-            cgi.h1 { "Post Form: " } + "\n"+
-            cgi.password_field("userpassword") +"\n"+
-            cgi.br +
-            cgi.submit
-         }
+         # cgi.form{"\n"+
+         #    cgi.hr +
+         #    cgi.h1 { "Post Form: " } + "\n"+
+         #    cgi.password_field("userpassword") +"\n"+
+         #    cgi.br +
+         #    cgi.submit
+         # }
       }
    }
 }
