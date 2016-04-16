@@ -9,13 +9,15 @@ minutes = time[2..3]
 seconds = time[4..5]
 if(col=="black")
   colfont = 'white'
+else
+  colfont = 'black'
 end
 print "Content-Type: text/html \n\n" 
 print '<html><head>'
 print "<meta charset='UTF-8'>"
 print '<title>Hello World Ruby</title></head>'
 print "<style>"
-print "body{background-color:#{colors.sample};color:#{colfont};}"
+print "body{background-color:#{col};color:#{colfont};}"
 print "</style>"
 print "<body>"
 print test1
