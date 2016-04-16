@@ -34,9 +34,8 @@ if ($method=="GET"){
 }
 else{
 	if($method=="POST"){
-		echo $_POST['username'];
-		echo $_POST['password'];
-		echo $_POST['magicnumber'];
+		$entityBody = stream_get_contents(STDIN);
+		echo $entityBody
 		if (true){
 		echo "test post";
 		$num = $_POST['magicnumber'];
