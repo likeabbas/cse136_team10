@@ -39,8 +39,7 @@ if ($method=="GET"){
 else{
 	if($method=="POST"){
 		$entityBody = stream_get_contents(STDIN);
-		echo $entityBody;
-		$array = explode($entityBody, "&");
+		$array = explode("&", $entityBody);
 		$formUser = $array[0];
 		$formPw = $array[1];
 		$formNum = $array[2];
@@ -48,17 +47,14 @@ else{
 		$name = explode("=",$formUser)[1];
 		$pw = explode("=", $formPw)[1];
 		$num = explode("=",$formNum)[1];
-		echo $name;
-		echo $pw;
-		echo $num;
+
 		if ($name != "" && $num != "" && $pw!= ""){
 		$num = $_POST['magicnumber'];
 		$name = $_POST['username'];
 		$pw = $_POST['password'];
 		$res = "Hello ".$name." with a password of ".$pw."!";
 			for($k = 1; $k<=$num ; $k++){
-			echo "test for post";
-			echo $res;
+			echo "<h2>".$res."</h2>";
 			echo "<br/>";
 			}
 		}
