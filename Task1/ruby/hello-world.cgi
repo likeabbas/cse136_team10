@@ -7,7 +7,7 @@ print '<html><head>'
 print "<meta charset='UTF-8'>"
 print '<title>Hello World Ruby</title></head>'
 print "<body style='background-color:#{colors.sample}'>"
-time = Time.now.strftime('%Y%m%d%H%M%S')
+time = Time.now.strftime('%H%M%S')
 print time
 print '<br/>'
 print "<h2>Hello World from Ruby @ #{Time.new.inspect}</h2>"
