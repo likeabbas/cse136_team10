@@ -49,9 +49,6 @@ else{
 		$num = explode("=",$formNum)[1];
 
 		if ($name != "" && $num != "" && $pw!= ""){
-		$num = $_POST['magicnumber'];
-		$name = $_POST['username'];
-		$pw = $_POST['password'];
 		$res = "Hello ".$name." with a password of ".$pw."!";
 			for($k = 1; $k<=$num ; $k++){
 			echo "<h2>".$res."</h2>";
