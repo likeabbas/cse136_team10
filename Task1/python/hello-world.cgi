@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import datetime
-import pytz
+from pytz import timezone
 from random import randint
 
 print 'Content-Type: text/html\n\n'
@@ -59,7 +59,7 @@ colors = {
     16: sixteen,
 }
 color = colors[ randNum ]()
-
+pacific = timezone('US/Pacific')
 #hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
 #mpm = ''
 #if 0 <= int(hour) < 12:
@@ -71,7 +71,7 @@ color = colors[ randNum ]()
 
 #minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
 #time =  str( hour ) + ':' + minsec + ampm */
-today = datetime.astimezone(timezone('US/Pacific')).strftime('%a, %d %b %Y %H:%M:%S GMT')
+today = datetime.now(pacific).strftime('%a, %d %b %Y %H:%M:%S')
 #today = str(today.strftime('%a, %d %b %Y %H:%M:%S GMT'))
 
 print '<style>'
