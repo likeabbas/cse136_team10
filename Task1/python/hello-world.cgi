@@ -76,7 +76,7 @@ ampm = ''
 #    ampm = 'pm'
 
 minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
-time =  monthYear + str( hour ) + ':' + minsec
+time =  monthYear + ' ' + str( hour ) + ':' + minsec
 #hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
 
 #today = datetime.datetime.now()
