@@ -15,10 +15,17 @@ class EnvMap{
 				server.add(envName);
 			}
 		}
-		System.out.print("Content-Type: text/html\n");
-		System.out.println("<h2>Browser Variables </h2>");
+		System.out.println("Content-Type: text/html\n");
+		System.out.println("<html><head><title>Environment Variables Java</title>");
+		System.out.println("<style> table { border-collapse: collpase} td{border: 1px solid black} th, td{padding:12px} .header{ font-weight: bold; font-size: 120%;} </style>");;
+
+		System.out.println("</head> <body>");
+		System.out.println("<h1>Enviroment Variables</h1> <h2>Browser Variables </h2>");
 		System.out.println("<table>");
 		System.out.println("<tr><td class = 'header'>Variable Name</td><td class ='header'>Value</td></tr>");
+
+		Collections.sort(browser);
+		Collections.sort(server);
 
 		for(String browserName : browser){
 			String row = String.format("<tr><td> %s </td><td> %s </td></tr>",browserName, env.get(browserName));
@@ -26,7 +33,7 @@ class EnvMap{
 		}
 		System.out.println("</table>");
 
-		System.out.println("<h2>Browser Variables </h2>");
+		System.out.println("<h2>Server Variables </h2>");
 		System.out.println("<table>");
 		System.out.println("<tr><td class = 'header'>Variable Name</td><td class ='header'>Value</td></tr>");
 
@@ -35,5 +42,6 @@ class EnvMap{
 			System.out.println(serverRow);
 		}
 		System.out.println("</table>");
+		System.out.println("</body>");
 }
 }

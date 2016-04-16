@@ -5,7 +5,12 @@ class HelloWorld {
   public static void main(String[] args) {
 
     //Initialize Date and colors
-    String timeStamp = "April";//(new java.util.Date()).toLocaleString();
+    //String timeStamp = (new java.util.Date()).toLocaleString();
+    SimpleDateFormat dateFormat = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss");
+    Date today = new Date();
+    TimeZone pst = TimeZone.getTimeZone("America/Los_Angeles");
+    dateFormat.setTimeZone(pst);
+    String timeStamp = dateFormat.format(today);
     String[] colors  = {"aqua", "black", "blue", "fuchsia", "gray", "green", "lime",
         "maroon", "navy", "olive","purple", "red", "silver", "teal", "white", "yellow"};
     String textColor = "black";
@@ -23,7 +28,7 @@ class HelloWorld {
       + "</body> "
       +"</html>", backgroundColor , textColor ,  timeStamp);
 
-    System.out.print("Content-Type: text/html\n");
+    System.out.print("Content-Type: text/html\n\n");
     System.out.print(document);
   }
 }

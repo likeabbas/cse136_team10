@@ -8,6 +8,11 @@ echo('<head>
 
 $color = array('aqua', 'black', 'blue', 'fuchsia', 'gray', 'green', 'lime', 'maroon', 'navy', 'olive', 'purple', 'red', 'silver', 'teal', 'white',  'yellow');
 $rd = floor(rand(0,17));
+if($rd==1 || $rd==7 || $rd==8 || $rd==10){
+echo('<style>
+	body{color:white;};
+	</style>');
+}
 echo('<style>
 	body{background-color:'.$color[$rd].'};
 	</style>');
