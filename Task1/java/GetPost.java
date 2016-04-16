@@ -10,7 +10,7 @@ class GetPost{
     System.out.println( "<style>" );
     System.out.println( "</style>" );
     System.out.println( "<body>");
-    System.out.println( "<h1>GET Form </h1>" );
+    System.out.println( "<h1>Get Form </h1>" );
     System.out.println( "<form action='processdata.cgi' method='get'>");
     System.out.println( "<input type='text' name='username' placeholder='Username'>" );
     System.out.println( "<input type='password' name='password' placeholder='Password'>" );
