@@ -60,9 +60,9 @@ colors = {
 color = colors[ randNum ]()
 
 hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-#if int(hour) - 7 < 0
-  #subtract = int(hour) - 7
-  #hour = 24 + subtract
+if int(hour) - 7 < 0:
+  subtract = int(hour) - 7
+  hour = 24 + subtract
 
 ampm = ''
 
