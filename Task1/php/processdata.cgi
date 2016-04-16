@@ -39,6 +39,7 @@ if ($method=="GET"){
 else{
 	if($method=="POST"){
 		$entityBody = stream_get_contents(STDIN);
+		echo $entityBody;
 		$array = explode($entityBody, "&");
 		$formUser = $array[0];
 		$formPw = $array[1];
