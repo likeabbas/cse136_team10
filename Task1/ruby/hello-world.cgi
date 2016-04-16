@@ -20,8 +20,6 @@ print "<style>"
 print "body{background-color:#{col};color:#{colfont};}"
 print "</style>"
 print "<body>"
-print test1
-print '<br/>'
 print "<h2>Hello World from Ruby @ #{hours}:#{minutes}:#{seconds}</h2>"
 print '</body>'
 print '</html>'
