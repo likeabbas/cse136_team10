@@ -77,5 +77,5 @@ print '<style>'
 print 'body{ background-color: ' + color + ' }'
 if randNum == 2 or randNum == 8 or randNum == 16:
     print 'h1{ color: white }'
-print '</style><body><h1>Hello World from Python @ ' + time + '</h1>'
+print '</style><body><h1>Hello World from Python @ ' + today + '</h1>'
 print '</body></html>'
