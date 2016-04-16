@@ -57,33 +57,14 @@ colors = {
     15: fifteen,
     16: sixteen,
 }
-#daysArr [0] = 'Sun'
-#daysArr [1] = 'Mon'
-#daysArr [2] = 'Tue'
-#daysArr [3] = 'Wed'
-#daysArr [4] = 'Thu'
-#daysArr [5] = 'Fri'
-#daysArr [6] = 'Sat'
 
 color = colors[ randNum ]()
 
 hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-#day = datetime.datetime.strftime( datetime.datetime.now(), '%a')
-#date = datetime.datetime.strftime( datetime.datetime.now(), '%d')
-#monthYear = datetime.datetime.strftime( datetime.datetime.now(), '%b %Y')
-
-#ampm = ''
 
 subtract = int(hour) - 7
 if subtract < 0:
   hour = 24 + subtract
-
-#if 0 <= int(hour) < 12:
-#    hour = 12
-#    ampm = 'am'
-#else:
-#    hour = ( int( hour ) % 12 ) + 1
-#    ampm = 'pm'
 
 minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
 time =  str( hour ) + ':' + minsec
