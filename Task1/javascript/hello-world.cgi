@@ -8,7 +8,7 @@ console.log('<head>');
 
 // Get a neat timestamp
 var date = new Date();
-date.setUTCHours(date.getUTCHours() + 15);
+date.setUTCHours(date.getUTCHours() + 17);
 var hours = hours = date.getHours();
 var minutes = date.getMinutes();
 var appm = hours >= 12 ? 'pm' : 'am';
