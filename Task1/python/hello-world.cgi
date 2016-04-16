@@ -60,13 +60,10 @@ colors = {
 color = colors[ randNum ]()
 
 hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-ampm = ''
-if 0 <= int(hour) < 12:
-    hour = 12
-    ampm = 'am'
-else:
-    hour = ( int( hour ) % 12 ) + 1
-    ampm = 'pm'
+
+hour = hour - 7
+if hour < 0:
+  hour = 24 + hour  
 
 minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
 time =  str( hour ) + ':' + minsec + ampm
