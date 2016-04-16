@@ -5,7 +5,7 @@ require 'cgi'
 # userName = cgi['username']
 # userPassword = cgi['userpassword']
 # magicNumber = cgi['magicnumber']
-cgi = CGI.new
+cgi = CGI.new("html4")
 cgi.out{
    cgi.html{
       cgi.head{ "\n"+cgi.title{"This Is a Test"} } +
@@ -13,6 +13,8 @@ cgi.out{
          cgi.form{"\n"+
             cgi.hr +
             cgi.h1 { "A Form: " } + "\n"+
+            cgi.textarea("get_text") +"\n"+
+            cgi.h2 { "A Form: " } + "\n"+
             cgi.textarea("get_text") +"\n"+
             cgi.br +
             cgi.submit
