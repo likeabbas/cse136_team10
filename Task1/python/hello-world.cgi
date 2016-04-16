@@ -71,7 +71,7 @@ color = colors[ randNum ]()
 #minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
 #time =  str( hour ) + ':' + minsec + ampm */
 today = datetime.datetime.now()
-today.strftime('%a, %d %b %Y %H:%M:%S')
+today = str(today.strftime('%a, %d %b %Y %H:%M:%S'))
 
 print '<style>'
 print 'body{ background-color: ' + color + ' }'
