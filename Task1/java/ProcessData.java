@@ -20,6 +20,7 @@ class ProcessData{
        data = env.get("QUERY_STRING");
     }
     else if(env.get("REQUEST_METHOD").toString().equals("POST")){
+    
       DataInput postOutput = new DataInputStream(System.in);
       String outputLine;
       try{

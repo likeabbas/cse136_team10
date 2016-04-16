@@ -6,7 +6,7 @@ class HelloWorld {
 
     //Initialize Date and colors
     //String timeStamp = (new java.util.Date()).toLocaleString();
-    SimpleDateFormat dateFormat = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss");
+    SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
     Date today = new Date();
     TimeZone pst = TimeZone.getTimeZone("America/Los_Angeles");
     dateFormat.setTimeZone(pst);
