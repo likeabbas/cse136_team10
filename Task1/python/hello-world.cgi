@@ -61,9 +61,9 @@ color = colors[ randNum ]()
 
 hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
 
-hour = hour - 7
+hour = int(hour) - 7
 if hour < 0:
-  hour = 24 + hour  
+  hour = 24 + hour
 
 minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
 time =  str( hour ) + ':' + minsec + ampm
