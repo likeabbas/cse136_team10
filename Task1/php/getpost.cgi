@@ -3,7 +3,7 @@
 echo("Content-Type: text/html\n\n");
 echo("<html><head><title>Get vs Post methods in forms PHP</title>
 </head><body>");
-echo("<h1>GET Form</h1>");
+echo("<h1>Get Form</h1>");
 echo("<form action='processdata.cgi' method='get'>
 <input type='text' name='username' placeholder='Username' required='true'>
 <input type='password' name='password' placeholder='Password' required='true'>
