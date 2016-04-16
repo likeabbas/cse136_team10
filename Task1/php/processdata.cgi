@@ -22,15 +22,11 @@ if ($method=="GET"){
 	$coupleNumber = $qrexplode[2];
 	$num = explode("=",$coupleNumber)[1];
 	if ($name!="" && $num!="" && $pw!=""){
-	//	echo "test get";
-	//	$num = $_GET['magicnumber'];
-	//	$name = $_GET['username'];
-	//	$pw = $_GET['password'];
 		$res = "Hello ".$name." with a password of ".$pw."!";
-			for($k = 1; $k<=$num ; $k++){
+		for($k = 1; $k<=$num ; $k++){
 			echo "<h2>".$res."</h2>";
 			echo "<br/>";
-			}
+		}
 	}
 	else{
 		echo "The form GET has not been filled up properly.";
