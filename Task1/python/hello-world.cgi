@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import datetime
+import pytz
 from random import randint
 
 print 'Content-Type: text/html\n\n'
@@ -70,8 +71,8 @@ color = colors[ randNum ]()
 
 #minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
 #time =  str( hour ) + ':' + minsec + ampm */
-today = datetime.datetime.now()
-today = str(today.strftime('%a, %d %b %Y %H:%M:%S'))
+today = datetime.astimezone(timezone('US/Pacific')).strftime('%a, %d %b %Y %H:%M:%S GMT')
+#today = str(today.strftime('%a, %d %b %Y %H:%M:%S GMT'))
 
 print '<style>'
 print 'body{ background-color: ' + color + ' }'
