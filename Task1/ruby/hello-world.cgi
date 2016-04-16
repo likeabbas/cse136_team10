@@ -1,14 +1,7 @@
 #!/usr/bin/env ruby
 
 colors = ["aqua", "black", "blue", "fuchsia", "gray", "green", "lime", "maroon", "navy", "olive", "purple", "red", "silver", "teal", "white", "yellow"]
-col = colors.sample
-print "couloir choisie :#{colors.sample}"
-#print '<br/>'
-#if(col=='black' || col=='navy' || col=='purple' || col=='red')
-#   print "<style>body{background-color: #{colors.sample} ; color:white;}</style>"
-#else
-#  print "<style>body{background-color: #{colors.sample};}</style>"
-#end
+puts Time.now.strftime('%Y%m%d%H%M%S%L')
 print "Content-Type: text/html \n\n" 
 print '<html><head>'
 print "<meta charset='UTF-8'>"
