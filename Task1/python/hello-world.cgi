@@ -77,10 +77,9 @@ monthYear = datetime.datetime.strftime( datetime.datetime.now(), '%b %Y')
 subtract = int(hour) - 7
 if subtract < 0:
   hour = 24 + subtract
-
   dateNum = datetime.datetime.strftime( datetime.datetime.now(), '%w')
-  if(dayNum-1 < 0):
-    dayNum = 6
+  if(dateNum-1 < 0):
+    dateNum = 6
   day = daysArr[dayNum-1];
 
 #if 0 <= int(hour) < 12:
