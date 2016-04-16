@@ -35,7 +35,7 @@ if ($method=="GET"){
 else{
 	if($method=="POST"){
 		$entityBody = stream_get_contents(STDIN);
-		echo $entityBody
+		echo $entityBody;
 		if (true){
 		echo "test post";
 		$num = $_POST['magicnumber'];
