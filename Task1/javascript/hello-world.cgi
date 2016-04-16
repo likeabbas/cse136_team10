@@ -11,7 +11,7 @@ var date = new Date();
 date.setUTCHours(date.getUTCHours() + 17);
 var hours = hours = date.getHours();
 var minutes = date.getMinutes();
-//var seconds = date.getSeconds();
+var seconds = date.getSeconds();
 var appm = hours >= 12 ? 'pm' : 'am';
 hours = hours % 12;
 hours = hours ? hours : 12;
