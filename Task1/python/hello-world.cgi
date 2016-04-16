@@ -80,7 +80,7 @@ if subtract < 0:
   dateNum = datetime.datetime.strftime( datetime.datetime.now(), '%w')
   if(dateNum-1 < 0):
     dateNum = 6
-  day = daysArr[dayNum-1];
+  day = daysArr[dayNum-1]
 
 #if 0 <= int(hour) < 12:
 #    hour = 12
