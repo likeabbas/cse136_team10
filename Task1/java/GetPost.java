@@ -6,7 +6,7 @@ class GetPost{
 
   public static void main(String[] args){
     System.out.println( "Content-Type: text/html\n");
-    System.out.println( "<html>\n<head>\n<title>Get And Post Forms</title>");
+    System.out.println( "<html>\n<head>\n<title>Get And Post Forms</title></head>");
     System.out.println( "<style>" );
     System.out.println( "</style>" );
     System.out.println( "<body>");
