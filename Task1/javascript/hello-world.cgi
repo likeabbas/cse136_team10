@@ -11,11 +11,13 @@ var date = new Date();
 date.setUTCHours(date.getUTCHours() + 17);
 var hours = hours = date.getHours();
 var minutes = date.getMinutes();
+var seconds  = date.getSeconds();
 var appm = hours >= 12 ? 'pm' : 'am';
 hours = hours % 12;
 hours = hours ? hours : 12;
 minutes = minutes < 10 ? ( '0' + minutes ) : minutes;
-var time = hours + ':' + minutes + ' ' + appm; 
+seconds = seconds < 10 ? ( '0' + seconds ) : seconds;
+var time = hours + ':' + minutes + secondes + ' ' + appm; 
 console.log('<title>Hello World Node</title>');
 
 // Get a random number from 1 to 16 inclusively
