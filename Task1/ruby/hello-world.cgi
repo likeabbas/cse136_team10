@@ -8,7 +8,7 @@ print "<meta charset='UTF-8'>"
 print '<title>Hello World Ruby</title></head>'
 print "<body style='background-color:#{colors.sample}'>"
 time = Time.now.strftime('%H%M%S')
-hours = time[0..1]
+hours = Integer(time[0..1])+17
 print hours
 print '<br/>'
 print time
