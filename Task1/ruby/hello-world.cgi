@@ -7,6 +7,8 @@ print "<meta charset='UTF-8'>"
 print '<title>Hello World Ruby</title></head>'
 print colors.sample
 print '<br/>'
+print colors.sample
+print '<br/>'
 print "<body style = 'background-color: #{colors.sample}'>"
 
 print "<h2>Hello World from Ruby @ #{Time.new.inspect}</h2>"
