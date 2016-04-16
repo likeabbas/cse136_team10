@@ -2,6 +2,7 @@
 
 colors = ["aqua", "black", "blue", "fuchsia", "gray", "green", "lime", "maroon", "navy", "olive", "purple", "red", "silver", "teal", "white", "yellow"]
 col = colors.sample; 
+
 time = Time.now.strftime('%H%M%S')
 hours = Integer(time[0..1])+17
 minutes = time[2..3]
@@ -14,6 +15,8 @@ print "<style>"
 print "body{background-color:#{colors.sample};color:#{col};}"
 print "</style>"
 print "<body>"
+print col
+print '<br/>'
 print "<h2>Hello World from Ruby @ #{hours}:#{minutes}:#{seconds}</h2>"
 print '</body>'
 print '</html>'
