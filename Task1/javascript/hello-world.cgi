@@ -17,7 +17,7 @@ hours = hours % 12;
 hours = hours ? hours : 12;
 minutes = minutes < 10 ? ( '0' + minutes ) : minutes;
 seconds = seconds < 10 ? ( '0' + seconds ) : seconds;
-var time = hours + ':' + minutes + seconds + appm; 
+var time = hours + ':' + minutes + ':'+seconds+' ' + appm; 
 console.log('<title>Hello World Node</title>');
 
 // Get a random number from 1 to 16 inclusively
