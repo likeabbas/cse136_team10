@@ -58,6 +58,7 @@ colors = {
     16: sixteen,
 }
 color = colors[ randNum ]()
+
 #hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
 #mpm = ''
 #if 0 <= int(hour) < 12:
@@ -69,10 +70,8 @@ color = colors[ randNum ]()
 
 #minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
 #time =  str( hour ) + ':' + minsec + ampm */
-#hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-
-today = str(datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT'))
-#today = str(today.strftime('%a, %d %b %Y %H:%M:%S GMT'))
+today = datetime.now()
+today = str(today.strftime('%a, %d %b %Y %H:%M:%S'))
 
 print '<style>'
 print 'body{ background-color: ' + color + ' }'
