@@ -17,7 +17,7 @@ echo('<style>
 	body{background-color:'.$color[$rd].'};
 	</style>');
 date_default_timezone_set('America/Los_Angeles');
-$date = date('m/d/Y h:i:s a', time());
+$date = date('h:i:s a', time());
 $res = '<h1>Hello World from PHP @'.$date.'</h1>';
 echo('<body>');
 echo($res);
