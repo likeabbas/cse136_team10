@@ -10,17 +10,18 @@ cgi.out{
    cgi.html{
       cgi.head{ "\n"+cgi.title{"This Is a Test"} } +
       cgi.body{ "\n"+
-         cgi.form{[method = get]"\n"+
+         cgi.form{"\n"+
             cgi.hr +
             cgi.h1 { "Get Form: " } + "\n"+
-            cgi.textarea("get_text") +"\n"+
+            cgi.text_field("username") +
+            cgi.password_field("userpassword") +"\n"+
             cgi.br +
             cgi.submit
          }
-         cgi.form{[method = post]"\n"+
+         cgi.form{"\n"+
             cgi.hr +
             cgi.h1 { "Post Form: " } + "\n"+
-            cgi.textarea("get_text") +"\n"+
+            cgi.password_field("userpassword") +"\n"+
             cgi.br +
             cgi.submit
          }
