@@ -5,9 +5,9 @@ col = #{colors.sample}
 print col
 print '<br/>'
 if(col=='black' || col=='navy' || col=='purple' || col=='red')
-   print "<style>body{background-color: #{col} ; color:white;}</style>"
+   print "<style>body{background-color: #{colors.sample} ; color:white;}</style>"
 else
-  print "<style>body{background-color: #{col};}</style>"
+  print "<style>body{background-color: #{col.sample};}</style>"
 end
 print "Content-Type: text/html \n\n" 
 print '<html><head>'
