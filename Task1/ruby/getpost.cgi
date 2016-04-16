@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-
+puts "<h2>Test output</h2>"
 require 'cgi'
 cgi = CGI.new
 userName = cgi['username']
