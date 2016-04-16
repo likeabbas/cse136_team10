@@ -57,25 +57,43 @@ colors = {
     15: fifteen,
     16: sixteen,
 }
+
+days = {
+  'Sun': 0,
+  'Mon': 1,
+  'Tue': 2,
+  'Wed': 3,
+  'Thu': 4,
+  'Fri': 5,
+  'Sat': 6,
+}
+
+daysArr [0] = 'Sun'
+daysArr [1] = 'Mon'
+daysArr [2] = 'Tue'
+daysArr [3] = 'Wed'
+daysArr [4] = "Thu"
+daysArr [5] = "Fri"
+daysArr [6] = "Sat"
+
 color = colors[ randNum ]()
 
 hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-monthYear = datetime.datetime.strftime( datetime.datetime.now(), '%a, %d %b %Y')
+day = datetime.datetime.strftime( datetime.datetime.now(), '%a')
+date = datetime.datetime.strftime( datetime.datetime.now(), '%d')
+
+monthYear = datetime.datetime.strftime( datetime.datetime.now(), '%b %Y')
+
 hour = hour - 7
 if hour < 0:
   hour = 24 + hour
-
-ampm = ''
-
-#if 0 <= int(hour) < 12:
-#    hour = 12
-#    ampm = 'am'
-#else:
-#    hour = ( int( hour ) % 12 ) + 1
-#    ampm = 'pm'
+  dateNum = datetime.datetime.strftime( datetime.datetime.now(), '%w')
+  if(dayNum-1 < 0):
+    dayNum = 6
+  day = daysArr[dayNum-1];
 
 minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
-time =  monthYear + ' ' + str( hour ) + ':' + minsec
+time =  day + ', ' + date + ' ' + monthYear + ' ' + str( hour ) + ':' + minsec
 #hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
 
 #today = datetime.datetime.now()
