@@ -69,6 +69,7 @@ nav {
 .row {
   display: flex;
   flex-flow: row;
+  flex-wrap: overflow;
   justify-content: space-around; }
 
 .heading {
