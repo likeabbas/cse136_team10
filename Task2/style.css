@@ -1,1 +1,55 @@
-//Write css here 
+.container{
+	width: 50%;
+	margin-right:auto;
+	margin-left: auto;
+	padding-left: 5%;
+	padding-right: 5%;
+	border: 1px solid black;
+	box-shadow: 0 1px 5px #777;
+	border-radius: 10px;
+	font-family: "Century Gothic";
+	background-color: rgba(152,78,166,0.5);
+
+}
+
+table a, table a:visited {
+	position: relative;
+	display: block;
+	line-height: 20px;
+	text-decoration: none;
+	font-size: 1em;
+	font-weight: bold;
+}
+table a span {
+	display: none;
+}
+
+/* the IE correction rule */
+table a:hover	{
+	color: rgb(180,12,120); 
+	text-indent: 0; /* added the default value */
+}
+
+table a:hover span {
+	display: block;
+	position: absolute;
+	top: 0px;
+	left: 120px;
+	width: 320px;
+	margin: 0px;
+	padding: 10px;
+	color: white;
+	font-weight: normal;
+	background: rgb(60,50,160);
+	text-align: left;
+	border-radius: 5px;
+	box-shadow:3px 3px 3px #777;
+}
+
+.btn-edit, .btn-delete{
+	float: right;
+	border-radius: 5px;
+	background-color: white;
+	color:rgb(60,50,160);
+	margin:5px; 
+}
