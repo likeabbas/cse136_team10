@@ -5,16 +5,21 @@ require 'cgi'
 # userName = cgi['username']
 # userPassword = cgi['userpassword']
 # magicNumber = cgi['magicnumber']
-cgi = CGI.new("html4")
+cgi = CGI.new("html5")
 cgi.out{
    cgi.html{
       cgi.head{ "\n"+cgi.title{"This Is a Test"} } +
       cgi.body{ "\n"+
-         cgi.form{"\n"+
+         cgi.form{[method = get]"\n"+
             cgi.hr +
-            cgi.h1 { "A Form: " } + "\n"+
+            cgi.h1 { "Get Form: " } + "\n"+
             cgi.textarea("get_text") +"\n"+
-            cgi.h2 { "A Form: " } + "\n"+
+            cgi.br +
+            cgi.submit
+         }
+         cgi.form{[method = post]"\n"+
+            cgi.hr +
+            cgi.h1 { "Post Form: " } + "\n"+
             cgi.textarea("get_text") +"\n"+
             cgi.br +
             cgi.submit
