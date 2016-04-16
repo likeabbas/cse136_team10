@@ -57,51 +57,22 @@ colors = {
     15: fifteen,
     16: sixteen,
 }
-
-days = {
-  'Sun': 0,
-  'Mon': 1,
-  'Tue': 2,
-  'Wed': 3,
-  'Thu': 4,
-  'Fri': 5,
-  'Sat': 6,
-}
-
-daysArr [0] = 'Sun'
-daysArr [1] = 'Mon'
-daysArr [2] = 'Tue'
-daysArr [3] = 'Wed'
-daysArr [4] = "Thu"
-daysArr [5] = "Fri"
-daysArr [6] = "Sat"
-
 color = colors[ randNum ]()
 
 hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-day = datetime.datetime.strftime( datetime.datetime.now(), '%a')
-date = datetime.datetime.strftime( datetime.datetime.now(), '%d')
-
-monthYear = datetime.datetime.strftime( datetime.datetime.now(), '%b %Y')
-
-hour = hour - 7
-if hour < 0:
-  hour = 24 + hour
-  dateNum = datetime.datetime.strftime( datetime.datetime.now(), '%w')
-  if(dayNum-1 < 0):
-    dayNum = 6
-  day = daysArr[dayNum-1];
+ampm = ''
+if 0 <= int(hour) < 12:
+    hour = 12
+    ampm = 'am'
+else:
+    hour = ( int( hour ) % 12 ) + 1
+    ampm = 'pm'
 
 minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
-time =  day + ', ' + date + ' ' + monthYear + ' ' + str( hour ) + ':' + minsec
-
-#hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-#today = datetime.datetime.now()
-#today = str(today.strftime('%a, %d %b %Y' + hour + ':%M:%S'))
-
+time =  str( hour ) + ':' + minsec + ampm
 print '<style>'
 print 'body{ background-color: ' + color + ' }'
 if randNum == 2 or randNum == 8 or randNum == 16:
     print 'h1{ color: white }'
-print '</style><body><h1>Hello World from Python @ ' + str(time) + '</h1>'
+print '</style><body><h1>Hello World from Python @ ' + time + '</h1>'
 print '</body></html>'
