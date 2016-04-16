@@ -71,7 +71,7 @@ color = colors[ randNum ]()
 #time =  str( hour ) + ':' + minsec + ampm */
 #hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
 
-today = datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
+today = str(datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT'))
 #today = str(today.strftime('%a, %d %b %Y %H:%M:%S GMT'))
 
 print '<style>'
