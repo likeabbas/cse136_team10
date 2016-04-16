@@ -91,7 +91,7 @@ if subtract < 0:
 #    ampm = 'pm'
 
 minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
-time =  day + ', ' + date + ' ' + monthYear + str( hour ) + ':' + minsec
+time =  str(day) + ', ' + str(date) + ' ' + monthYear + str( hour ) + ':' + minsec
 print '<style>'
 print 'body{ background-color: ' + color + ' }'
 if randNum == 2 or randNum == 8 or randNum == 16:
