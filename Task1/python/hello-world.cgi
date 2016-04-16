@@ -57,19 +57,17 @@ colors = {
     15: fifteen,
     16: sixteen,
 }
+
 color = colors[ randNum ]()
 
 hour = datetime.datetime.strftime( datetime.datetime.now(), '%H')
-ampm = ''
-if 0 <= int(hour) < 12:
-    hour = 12
-    ampm = 'am'
-else:
-    hour = ( int( hour ) % 12 ) + 1
-    ampm = 'pm'
+
+subtract = int(hour) - 7
+if subtract < 0:
+  hour = 24 + subtract
 
 minsec = datetime.datetime.strftime(datetime.datetime.now(), '%M:%S')
-time =  str( hour ) + ':' + minsec + ampm
+time =  str( hour ) + ':' + minsec
 print '<style>'
 print 'body{ background-color: ' + color + ' }'
 if randNum == 2 or randNum == 8 or randNum == 16:

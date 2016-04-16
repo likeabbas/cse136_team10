@@ -4,7 +4,7 @@ print 'Content-Type: text/html'
 print
 print '<html><head><title>Environment Variables Python</title>'
 print '</head><body>'
-print '<h1>GET Form</h1>'
+print '<h1>Get Form</h1>'
 print '<form action="processdata.cgi" method="get">'
 print '<input type="text" name="username" placeholder="Username">'
 print '<input type="password" name="password" placeholder="Password">'
