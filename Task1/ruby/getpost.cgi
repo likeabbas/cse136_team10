@@ -5,7 +5,7 @@ print "<html><head>"
 print "<title>Get vs Post Ruby</title></head>"
 print "<bordy>"
 print "<form action ='processdata.cgi' method = 'get'>"
-print "<h1>Get Form:</h1>">
+print "<h1>Get Form:</h1>"
 print "<br/>"
 print "<input type='text' name='username' placeholder='Username' required='true'>"
 print "<input type ='password' name= 'userpassword' placeholder='Password' required='true'>"
