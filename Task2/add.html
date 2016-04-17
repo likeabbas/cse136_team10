@@ -12,11 +12,11 @@
 			<h2>Bookmarx</h2>
 			<p>Add a new bookmark</p>
 			<p>Fill out the form with the requested values</p>
-			<input type="text" name="title" placeholder="title"><br>
-			<input type="text" name="url" placeholder="URL"><br>
+			<input type="text" name="title" placeholder="title" required="true"><br>
+			<input type="url" name="url" placeholder="URL" required="true"><br>
 			<input type="text" name="keywords" placeholder="keywords"><br>
 			<input type="text" name="description" placeholder="Description"><br>
-			<label for="star">Star it?</label><input type="radio" name="star" id="star"><br>
+			<label for="star">Star it?</label><input type="check" name="star" id="star"><br>
 			<button type = "submit" id="confirm_add">Edit</button>
 			<button type = "button" id="cancel_add" onClick="location.href='assignment2.html'">Cancel</button>
 		</form>
