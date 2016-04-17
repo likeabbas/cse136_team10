@@ -7,10 +7,11 @@
 	<title>architecture</title>
 </head>
 <body>
-	<div class="container">
-		<h2>Bookmarx</h2>
+	<div class="side-bar">
+		<h1>BookMarx</h1>
+		<div class = "folder-wrapper">
+		<h2>Favorites</h2>
 		<table>
-
 			<tr>
 				<td>
 				<a href="">Facebook
@@ -101,8 +102,55 @@
 				</a>
 				</td>
 			</tr>
-
 		</table>
+		<h2>Folders</h2>
+		<table id = "folders">
+			<tr>
+				<td>
+					<div class="tooltip">
+					  <input type="checkbox" value="selected" id="social-folder" class="folder-input">
+					  	<label for="social-folder" class="social-label">Social Media</label>
+					  <div role="folder" class="folder-content">
+							<li>Facebook</li>
+							<li>Instagram</li>
+							<li>Vine</li>
+							<li>Tumblr</li>
+					 </div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tooltip">
+					  <input type="checkbox" value="selected" id="class-folder" class="folder-input">
+					  	<label for="class-folder" class="social-label">Class</label>
+					  <div role="folder" class="folder-content">
+							<li>CSE 136 </li>
+							<li>CSE 141 </li>
+							<li>CSE 120 </li>
+					 </div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+		<div class="add-folder">	+
+		</div>
+	</div>
+
+	<div class="home-container">
+		<div id = "facebook" class="cards">
+			<h1>Facebook</h1>
+			<p class="bookmark-description">
+				This is the description of facebook. It was created the homie Mark. His favorite color is obviously blue.
+			</p>
+			<a style="text-decoration: none" href="#" target="_blank">
+	      <div class="bookmark-button">
+					<p>Link</p>
+				</div>
+    	</a>
+			<p class="tags"><span>Tags: </span>facebook, profile, social network</p>
+		</div>
 	</div>
 
 </body>
