@@ -8,20 +8,15 @@
 </head>
 <body>
   <div class="container">
-    <h2>Bookmarx</h2>
-    <br/>
-    <p>Are you sure you want to delete this Bookmark?
-    <br/>Title :
-    <br/>URL :
-    <br/>Keywords :
-    </p>
-    <form action="perform_delete.php" method="post">
+	    <h2>Bookmarx</h2>
+	    <p><b>Are you sure you want to delete this Bookmark?</b></p>
+	    <p>Title :</p>
+	    <p>URL :</p>
+	    <p>Keywords :</p>
+    <form id="delete-button-wrapper" style ="overflow:auto;"action="perform_delete.php" method="post">
     	<button type="submit" id="confirm_delete">Yes</button>
-    </form>
-    <form action="assignment2.html" method="post">
-    	<button type="submit" id="cancel_delete">No</button>
-    </form>
-
+			<button type="button" onClick = "location.href='assignment2.html'"id="cancel_delete">No</button>
+		</form>
   </div>
 </body>
 </html>
