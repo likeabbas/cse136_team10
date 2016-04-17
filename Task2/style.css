@@ -16,6 +16,19 @@ body{
 	height: 100%;
 }
 
+.side-bar{
+	top: 0;
+	left: 0;
+	padding-left: 20px;
+
+	width: 240px;
+	float:left;
+	position:fixed;
+	font-family: "Century Gothic";
+	background-color: white;
+
+}
+
 .container  h2{
 	padding-top: 25px;
 	color: #43aea8;
