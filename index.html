@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="mainapp">
 <head>
     <title>CSE 136 Team 10's Homepage</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 
-    <!-- Main Js -->
-    <script type="text/javascript" src="js/main.js"></script>
+    <!-- Angular CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+
+    <!-- Application JS -->
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers.js"></script>
+    <script type="text/javascript" src="js/services.js"></script>
 
     <!-- Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body ng-controller="HomeCtrl">
     <nav>
         <h1>
             Team 10
@@ -26,62 +31,37 @@
             </li>
         </ul>
     </nav>
-    <div class="section-att">
+    <div class="section-tm">
         <h2 class="heading">Team Members</h2>
         <div class="row">
             <div class="tm">
                 <img src="./imgs/Anthony.jpg" class="photo circle">
                 <div class="card">
-                    <h3 class="name">Anthony Altieri</h3>
-                    <p class="info">(818) 201-4755</p>
-                    <p class="info">AnthonyRAltieri@gmail.com</p>
-                    <p class="info">github.com/AnthonyAltieri</p>
-                    <p class="bio">
-                        I am a fourth year pre-law student at the University
-                        of California, San Diego studying Computer Science
-                        Engineering. My interests include computer science,
-                        programming, finance, and law. I am mostly a
-                        front-end developer but I am capable of all facets
-                        of development. I am currently an intern at the
-                        startup Mesh for which I do front-end development.
-                        I am also the founder/owner/front-end developer for
-                        Stylist Spaces a marketing product for hairstylists.
-                    </p>
+                    <h3 class="name"> {{ Anthony.fullname }} </h3>
+                    <p class="info"> {{ Anthony.phonenum }} </p>
+                    <p class="info"> {{ Anthony.email }} </p>
+                    <p class="info"> {{ Anthony.githublink }} </p>
+                    <p class="bio"> {{ Anthony.bio }} </p>
                 </div>
             </div>
             <div class="tm">
                 <img src="./imgs/guillaume.png" class="photo circle">
                 <div class="card">
-                    <h3 class="name">Guillaume Hauss</h3>
-                    <p class="info">(858) 997-7931</p>
-                    <p class="info">ghauss@hotmail.fr</p>
-                    <p class="info">github.com/GuillaumeHauss</p>
-                    <p class="bio">
-                        I am a french engineering student, majoring in
-                        Computer Science and Automation in Robotics. I've been
-                        in San Diego since December and will leave this little
-                        heaven in June. I am a project-driven guy, always looking
-                        for solutions whenever there is a problem. I like working
-                        in team and be part of something bigger. I was the CEO of an
-                        engineering consulting cabinet in Nantes, for 1 year. I managed
-                        32 co-workers and went over 20 projects as Program Manager.
-                        I like new technologies and especially connected cars.
-                    </p>
+                    <h3 class="name"> {{ Guillaume.fullname }} </h3>
+                    <p class="info"> {{ Guillaume.phonenum }} </p>
+                    <p class="info"> {{ Guillaume.email }} </p>
+                    <p class="info"> {{ Guillaume.githublink }} </p>
+                    <p class="bio"> {{ Guillaume.bio }} </p>
                 </div>
             </div>
             <div class="tm">
                 <img src="./imgs/daniel.jpg" class="photo circle">
                 <div class="card">
-                    <h3 class="name">Daniel Kong</h3>
-                    <p class="info">(310) 985-1473</p>
-                    <p class="info">dakong94@gmail.com</p>
-                    <p class="info">github.com/dakong</p>
-                    <p class="bio">
-                        Hey there! I'm Fourth year Computer Science major at UC San Diego,
-                        interested in front end web development. Some of my hobbies include
-                        gaming, hiking, and snowboarding. I currently work at UC San Diego Creative
-                        Service &amp; Publications, as a Student Web Developer.
-                    </p>
+                    <h3 class="name"> {{ Daniel.fullname }} </h3>
+                    <p class="info"> {{ Daniel.phonenum }} </p>
+                    <p class="info"> {{ Daniel.email }} </p>
+                    <p class="info"> {{ Daniel.githublink }} </p>
+                    <p class="bio"> {{ Daniel.bio }} </p>
                 </div>
             </div>
         </div>
@@ -89,38 +69,25 @@
             <div class="tm">
                 <img src="./imgs/avatar-st.png" class="photo circle">
                 <div class="card">
-                    <h3 class="name">Anders Trier</h3>
-                    <p class="info">-</p>
-                    <p class="info">-</p>
-                    <p class="info">github.com/AndersTrier</p>
-                    <p class="bio">
-                        First year graduate student. Interested in Computer Security.
-                    </p>
+                    <h3 class="name"> {{ Anders.fullname }} </h3>
+                    <p class="info"> {{ Anders.phonenum }} </p>
+                    <p class="info"> {{ Anders.email }} </p>
+                    <p class="info"> {{ Anders.githublink }} </p>
+                    <p class="bio"> {{ Anders.bio }} </p>
                 </div>
             </div>
             <div class="tm">
                 <img src="./imgs/brian.jpg" class="photo circle">
                 <div class="card">
-                    <h3 class="name">Brian Kim</h3>
-                    <p class="info">(818) 276-7028</p>
-                    <p class="info">brianskiim@gmail.com</p>
-                    <p class="info">github.com/brianskiim</p>
-                    <p class="bio">
-                        Hello. I am a fourth year Computer Science student at UCSD.
-                        I prefer front end development because I don't have much backend
-                        knowledge. On my free time I enjoy playing basketball, going to the gym,
-                        and any car related activities. I currently work for Hush doing all sorts
-                        of things.
-                    </p>
+                    <h3 class="name"> {{ Brian.fullname }} </h3>
+                    <p class="info"> {{ Brian.phonenum }} </p>
+                    <p class="info"> {{ Brian.email }} </p>
+                    <p class="info"> {{ Brian.githublink }} </p>
+                    <p class="bio"> {{ Brian.bio }} </p>
                 </div>
             </div>
-
         </div>
-
     </div>
-
-
-
 </body>
 
 </html>
