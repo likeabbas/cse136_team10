@@ -10,11 +10,10 @@
   <div class="container">
     <h2>Bookmarx</h2>
     <br/>
-    <p>Are you sure you want to delete this Bookmark?
-    <br/>Title :
-    <br/>URL :
-    <br/>Keywords :
-    </p>
+    <p>Are you sure you want to delete this Bookmark?</p>
+    <p>Title :</p>
+    <p>URL :</p>
+    <p>Keywords :</p>
     <form action="perform_delete.php" method="post">
     	<button type="submit" id="confirm_delete">Yes</button>
     </form>

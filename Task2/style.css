@@ -72,20 +72,28 @@ table a:hover span {
 }
 
 .btn-edit:hover, .btn-delete:hover{
+	cursor: pointer;
 	background-color: #43aea8;
 	color: white;
 	border: solid 1px #43aea8;
 }
 
-#confirm_delete{
-	float:left;
-	margin-left:25%;
-	color:red;
+#delete-button-wrapper{
+	margin-bottom: 25px;
 }
-#cancel_delete{
-	float:right;
-	margin-right:25%;
-	color:red;
+
+#delete-button-wrapper > button{
+ 	border: solid 1px black;
+	background-color: white;
+	border-radius: 2px;
+	width: 50px;
+}
+
+#delete-button-wrapper > button:hover{
+	cursor: pointer;
+	background-color: #43aea8;
+	color: white;
+	border: solid 1px #43aea8;
 }
 
 #edit-form{
@@ -118,6 +126,7 @@ table a:hover span {
 }
 
 #edit-form > button:hover{
+	cursor: pointer;
 	background-color: #43aea8;
 	color: white;
 	border: solid 1px #43aea8;
