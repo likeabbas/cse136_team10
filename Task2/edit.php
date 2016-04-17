@@ -10,7 +10,7 @@
   <div class="container">
     <h2>Bookmarx</h2>
     <br/>
-    <p>Are you sure you want to delete this Bookmark?
+    <p> Edit Bookmark?
     <br/>Title :
     <br/>URL :
     <br/>Keywords :
