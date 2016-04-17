@@ -57,8 +57,10 @@ table a:hover span {
 #confirm_delete{
 	float:left;
 	margin-left:25%;
+	color:red;
 }
 #cancel_delete{
 	float:right;
 	margin-right:25%;
+	color:red;
 }
