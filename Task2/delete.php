@@ -18,7 +18,7 @@
     <form action="perform_delete.php" method="post">
     	<button type="submit" id="confirm_delete">Yes</button>
     </form>
-    <form action="assignement2.html" method="post">
+    <form action="assignment2.html" method="post">
     	<button type="submit" id="cancel_delete">No</button>
     </form>
     
