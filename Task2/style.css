@@ -53,3 +53,12 @@ table a:hover span {
 	color:rgb(60,50,160);
 	margin:5px; 
 }
+
+#confirm_delete{
+	float:left;
+	margin-left:25%;
+}
+#cancel_delete{
+	float:right;
+	margin-right:25%;
+}
