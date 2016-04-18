@@ -5,7 +5,7 @@ body {
 .light-gray {
   background-color: #E0E0E0; }
 
-.no-textsel, nav a, .card-assignment a.btn {
+.no-textsel, nav a.title, nav a.navbtn, .card-assignment a.btn {
   text-decoration: none;
   user-select: none;
   -webkit-touch-callout: none;
@@ -17,6 +17,7 @@ body {
   width: 100%;
   height: 100%; }
 
+/* Navigation Bar */
 nav {
   width: 100%;
   height: 126px;
@@ -27,19 +28,26 @@ nav {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  align-items: center;
-  /* Title style */ }
-  nav h1 {
-    font-size: 62px;
+  align-items: center; }
+  nav a.title {
     font-family: "Open Sans", sans-serif;
     color: white;
     padding-left: 22px;
-    margin: 0; }
+    margin: 0;
+    cursor: pointer; }
+    @media (max-width: 990px) {
+      nav a.title {
+        font-size: 32px; } }
+    @media (min-width: 767px) {
+      nav a.title {
+        font-size: 62px; } }
   nav ul {
     margin: 0;
     padding: 0;
     list-style: none; }
   nav li, nav a {
+    display: inline-block;
+    margin: 0 4px;
     font-size: 28px;
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
@@ -47,21 +55,25 @@ nav {
     min-width: 100px;
     text-align: center;
     padding: 0 22px; }
-  nav a {
-    border: 2px solid white;
-    border-radius: 5px;
-    padding: 12px 22px;
-    background-clip: padding-box;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box; }
-  nav a:hover {
+  @media (min-width: 767px) {
+    nav a.navbtn {
+      border: 2px solid white;
+      border-radius: 5px;
+      padding: 12px 22px;
+      background-clip: padding-box;
+      -moz-background-clip: padding;
+      -webkit-background-clip: padding-box; } }
+  nav a.navbtn:hover {
     background-color: #512DA8;
     cursor: pointer; }
-  nav a:active {
+  nav a.navbtn:active {
     background-color: #7E57C2; }
 
-.section-att {
-  position: absolute;
+.tm__tiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   top: 126px;
   width: 100%;
   background-color: #FAFAFA; }
@@ -69,7 +81,6 @@ nav {
 .row {
   display: flex;
   flex-flow: row;
-  flex-wrap: overflow;
   justify-content: space-around; }
 
 .heading {
@@ -85,37 +96,38 @@ nav {
 img.circle {
   border-radius: 50%; }
 
-.team-member {
-  height: 400px;
-  padding-top: 50px; }
-
-.tm .photo {
-  height: 250px;
-  display: block;
-  margin-top: 12px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 22px; }
-.tm .name {
-  font-size: 32px;
-  font-family: "Open Sans", sans-serif;
-  text-align: center;
-  color: #333;
-  margin-top: 0;
-  margin-bottom: 8px;
-  margin-left: auto;
-  margin-right: auto; }
-.tm .info {
-  font-size: 16px;
-  font-family: "Open Sans", sans-serif;
-  margin: 4px 0;
-  text-align: center; }
-.tm .bio {
-  width: 300px;
-  font-size: 12px;
-  font-family: "Open Sans", sans-serif;
-  text-align: center;
-  color: #333; }
+.tm__tile {
+  width: 400px;
+  display: inline-block;
+  margin-left: 32px;
+  margin-right: 32px; }
+  .tm__tile .photo {
+    height: 250px;
+    display: block;
+    margin-top: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 22px; }
+  .tm__tile .name {
+    font-size: 32px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 8px;
+    margin-left: auto;
+    margin-right: auto; }
+  .tm__tile .info {
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    margin: 4px 0;
+    text-align: center; }
+  .tm__tile .bio {
+    width: 100%;
+    font-size: 12px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    color: #333; }
 
 .card {
   background-color: #FAFAFA;
@@ -123,28 +135,6 @@ img.circle {
   border-radius: 5px;
   box-shadow: 0 1px 5px #777;
   margin-bottom: 32px; }
-
-footer {
-  height: 100%;
-  width: 100%;
-  background: #333; }
-
-.marque {
-  position: absolute;
-  bottom: 0;
-  font-size: 52px;
-  line-height: 100%;
-  width: 100%;
-  margin: 0 auto;
-  color: white;
-  overflow: hidden;
-  white-space: nowrap;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-animation: marquee 50s linear infinite;
-  -o-animation: marquee 50s linear infinite;
-  animation: marquee 50s linear infinite; }
 
 .section-assignments, .section-assignment1 {
   padding-top: 142px;
