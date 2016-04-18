@@ -9,6 +9,7 @@
 <body>
 	<div class="side-bar">
 		<h1>BookMarx</h1>
+
 		<div class = "folder-wrapper">
 		<h2>Favorites</h2>
 		<table>
@@ -30,6 +31,9 @@
 				</span>
 				</a>
 				</td>
+				<td>
+					<img src="./images/star_gold.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
+				</td>
 			</tr>
 			<tr>
 				<td >
@@ -47,6 +51,9 @@
 				</form>
 				</span>
 				</a>
+				</td>
+				<td>
+					<img src="./images/star_white.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
 				</td>
 			</tr>
 			<tr>
@@ -66,6 +73,9 @@
 				</span>
 				</a>
 				</td>
+				<td>
+					<img src="./images/star_gold.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
+				</td>
 			</tr>
 			<tr>
 				<td >
@@ -84,6 +94,9 @@
 				</span>
 				</a>
 				</td>
+				<td>
+					<img src="./images/star_gold.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
+				</td>
 			</tr><tr>
 				<td >
 				<a href="">GitHub
@@ -100,6 +113,9 @@
 				</form>
 				</span>
 				</a>
+				</td>
+				<td>
+					<img src="./images/star_white.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
 				</td>
 			</tr>
 		</table>
@@ -133,12 +149,20 @@
 				</td>
 			</tr>
 		</table>
+		<a href="#" >Import bookmark</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#" >Export bookmark</a>
 	</div>
 		<div class="add-folder">	+
 		</div>
 	</div>
 
 	<div class="home-container">
+		<form action="sort.php" method="post">
+			<label>Sort your bookmarks by:</label><br/>
+			<input type="radio" name="sort_method" value="title" checked> Title
+  			<input type="radio" name="sort_method" value="last_visited">Last Visited
+  			<input type="radio" name="sort_method" value="most_visitedother">Most Visited
+		</form>
 		<div id = "facebook" class="cards">
 			<h1>Facebook</h1>
 			<p class="bookmark-description">
