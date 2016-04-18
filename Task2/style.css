@@ -301,9 +301,9 @@ table a:hover span {
 	font-size: 50px;
 	color: white;
 	line-height: 50px;
-	/*text-align:center;
-	/*margin-left:32%;
-	/*display:inline;*/
+	text-align:center;
+	/*margin-left:32%;*/
+	display:inline;
 }
 table,th, tr, td{
 	padding : 55px;
