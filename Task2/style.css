@@ -250,7 +250,9 @@ table a:hover	{
 
 .filled{
 	color: gold;
+
 }
+
 
 nav{
 	border-bottom: 1px solid #BCBCBC;
@@ -270,4 +272,9 @@ nav{
 	display:inline;
 	margin-left: 8px;
 
+}
+
+
+.fix-height{
+	height:33px !important;
 }
