@@ -1,7 +1,11 @@
+$desktop: "(min-width: 767px)";
+$mobile: "(max-width: 990px)";
+
 $nav-height: 126px;
 $nav-color: #673AB7;
 $nav-title-size: 62px;
 $nav-title-font: 'Open Sans', sans-serif;
+
 
 body {
   margin: 0;
@@ -26,6 +30,7 @@ body {
   height: 100%;
 }
 
+/* Navigation Bar */
 nav {
   width: 100%;
   height: $nav-height;
@@ -38,13 +43,19 @@ nav {
   justify-content: space-between;
   align-items: center;
 
-  /* Title style */
-  h1 {
-    font-size: $nav-title-size;
+  a.title {
+    @media #{$mobile} {
+      font-size: 32px;
+    }
+    @media #{$desktop} {
+      font-size: 62px;
+    }
     font-family: $nav-title-font;
     color: white;
     padding-left: 22px;
     margin: 0;
+    cursor: pointer;
+    @extend .no-textsel;
   }
 
   ul {
@@ -54,6 +65,8 @@ nav {
   }
 
   li, a {
+    display: inline-block;
+    margin: 0 4px;
     font-size: 28px;
     font-family: "Open Sans", sans-serif;
     font-weight: bold;
@@ -63,27 +76,37 @@ nav {
     padding: 0 22px;
   }
 
-  a {
-    border: 2px solid white;
-    border-radius: 5px;
-    padding: 12px 22px;
-    background-clip: padding-box;
-    -moz-background-clip: padding;
-    -webkit-background-clip: padding-box;
+  a.navbtn {
+    @media #{$mobile} {
+
+
+    }
+    @media #{$desktop} {
+      border: 2px solid white;
+      border-radius: 5px;
+      padding: 12px 22px;
+      background-clip: padding-box;
+      -moz-background-clip: padding;
+      -webkit-background-clip: padding-box;
+
+    }
     @extend .no-textsel;
   }
 
-  a:hover {
+  a.navbtn:hover {
     background-color: #512DA8;
     cursor: pointer;
   }
 
-  a:active {
+  a.navbtn:active {
     background-color: #7E57C2;
   }
 }
-.section-tm {
-  position: absolute;
+.tm__tiles {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   top: $nav-height;
   width: 100%;
   background-color: #FAFAFA;
@@ -107,12 +130,11 @@ nav {
 img.circle {
   border-radius: 50%;
 }
-.team-member {
-  height: 400px;
-  padding-top: 50px;
-
-}
-.tm {
+.tm__tile {
+  width: 400px;
+  display: inline-block;
+  margin-left: 32px;
+  margin-right: 32px;
 
   .photo {
     height: 250px;
@@ -139,7 +161,7 @@ img.circle {
     text-align: center;
   }
   .bio {
-    width: 300px;
+    width: 100%;
     font-size: 12px;
     font-family: "Open Sans", sans-serif;
     text-align: center;
@@ -152,28 +174,6 @@ img.circle {
   border-radius: 5px;
   box-shadow: 0 1px 5px #777;
   margin-bottom: 32px;
-}
-footer {
-  height: 100%;
-  width: 100%;
-  background: #333;
-}
-.marque {
-  position: absolute;
-  bottom: 0;
-  font-size: 52px;
-  line-height: 100%;
-  width: 100%;
-  margin: 0 auto;
-  color: white;
-  overflow: hidden;
-  white-space: nowrap;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-animation:marquee 50s linear infinite;
-  -o-animation:marquee 50s linear infinite;
-  animation:marquee 50s linear infinite;
 }
 .section-assignments {
   padding-top: 142px;
