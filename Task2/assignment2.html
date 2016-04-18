@@ -8,13 +8,15 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
 	<title>architecture</title>
 </head>
 
 <body>
 	<div class="side-bar">
 		<h1>BookMarx</h1>
-		
+
 		<div class="folder-wrapper">
 			<div class="row" id="new">
 				<div class="col-md-4 new-cell">
@@ -23,80 +25,81 @@
 				<div class="col-md-4 new-cell">
 					<div onClick="location.href='add.html'" class="add-folder">+</div>
 				</div>
-				
+
 			</div>
-			
-			<h2>Favorites</h2>
+
+			<h2>My List</h2>
 			<table>
 				<tr>
-					<td style="width:130px">
+					<td style="width:110px">
 						<a href="">Facebook</a>
 					</td>
-					<td style="width:40px">
-						<img src="./images/star_gold.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
+
+					<td class = "icon pencil">
+						<a href="edit.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 					</td>
-					<td style="width:40px">
-						<a href="edit.html"><img src="./images/edit.png" alt="edit" title="Click to edit"></a>
+					<td class = "icon trash">
+						<a href="delete.html"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 					</td>
-					<td style="width:40px">
-						<a href="delete.html"><img src="./images/delete.png" alt="delete" title="Click to delete"></a>
+					<td class="icon star">
+						<i class="fa fa-star filled" aria-hidden="true"></i>
 					</td>
-					
+
 				</tr>
 				<tr>
 					<td>
 						<a href="">Google Mail</a>
 					</td>
-					<td>
-						<img src="./images/star_white.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
+					<td class = "icon pencil">
+						<a href="edit.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 					</td>
-					<td>
-						<a href="edit.html"><img src="./images/edit.png" alt="edit" title="Click to edit"></a>
+					<td class = "icon trash">
+						<a href="delete.html"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 					</td>
-					<td>
-						<a href="delete.html"><img src="./images/delete.png" alt="delete" title="Click to delete"></a>
+					<td class="icon star">
+						<i class="fa fa-star-o" aria-hidden="true"></i>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<a href="">Youtube</a>
 					</td>
-					<td>
-						<img src="./images/star_gold.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
+					<td class = "icon pencil">
+						<a href="edit.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 					</td>
-					<td>
-						<a href="edit.html"><img src="./images/edit.png" alt="edit" title="Click to edit"></a>
+					<td class = "icon trash">
+						<a href="delete.html"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 					</td>
-					<td>
-						<a href="delete.html"><img src="./images/delete.png" alt="delete" title="Click to delete"></a>
+					<td class="icon star">
+						<i class="fa fa-star filled" aria-hidden="true"></i>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<a href="">LinkedIn</a>
 					</td>
-					<td>
-						<img src="./images/star_gold.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
+					<td class = "icon pencil">
+						<a href="edit.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 					</td>
-					<td>
-						<a href="edit.html"><img src="./images/edit.png" alt="edit" title="Click to edit"></a>
+					<td class = "icon trash">
+						<a href="delete.html"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 					</td>
-					<td>
-						<a href="delete.html"><img src="./images/delete.png" alt="deletet" title="Click to delete"></a>
+					<td class="icon star">
+						<i class="fa fa-star filled" aria-hidden="true"></i>
 					</td>
 				</tr>
 				<tr>
 					<td>
 						<a href="">GitHub</a>
 					</td>
-					<td>
-						<img src="./images/star_white.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
+					<td class = "icon pencil">
+						<a href="edit.html"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
 					</td>
-					<td>
-						<a href="edit.html"><img src="./images/edit.png" alt="edit" title="Click to edit"></a>
+					<td class = "icon trash">
+						<a href="delete.html"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
 					</td>
-					<td>
-						<a href="delete.html"><img src="./images/delete.png" alt="delete" title="Click to delete"></a>
+					<td class="icon star">
+						<i class="fa fa-star-o" aria-hidden="true"></i>
 					</td>
 				</tr>
 			</table>
@@ -130,50 +133,47 @@
 					</td>
 				</tr>
 			</table>
-			
+
 		</div>
-		
+
 	</div>
 
 	<div class="home-container">
-
-	<div class ="container-fluid">
-		<div class="row">
-			<div class=" col-md-2">
-				<form id="sort-controls" action="sort.php" method="post">
-					<div class="btn-group">
-					  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					    Sort bookmarks by... <span class="caret"></span>
-					  </button>
-					  <ul class="dropdown-menu">
-					    <li><a href="">Title</a></li>
-					    <li><a href="#">Last Visit</a></li>
-					    <li><a href="#">URL</a></li>
-					    <li><a href="#">Create Date</a></li>
-					    <li><a href="#">Stared/Unstared</a></li>
-					  </ul>
-					</div>
-				</form>
-			</div>
-			
-			<div class="col-md-offset-1 col-md-4">
-				<p>
-				Import bookmark&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-import"></a>
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				Export bookmark&nbsp;&nbsp;<a href="#"><span class="glyphicon glyphicon-export"></a>
-				</p>
-				
-				
-			</div>
-			<div class="col-md-offset-1 col-md-3">
-					<div class="input-group">
-      						<input type="text" class="form-control" placeholder="Search for...">
-      						<span class="input-group-btn">
-        					<button class="btn btn-default" type="button">Go!</button>
-					      	</span>
-					</div>
+		<nav>
+			<div class="row ">
+				<div class="nav-left col-md-8" >
+					<form id="sort-controls" action="sort.php" method="post" style="display:inline;">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								Sort bookmarks by... <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+								<li><a href="">Title</a></li>
+								<li><a href="#">Last Visit</a></li>
+								<li><a href="#">URL</a></li>
+								<li><a href="#">Create Date</a></li>
+								<li><a href="#">Stared/Unstared</a></li>
+							</ul>
+						</div>
+					</form>
+					<p class='import-export'>
+					Import bookmark&nbsp;<a href="#"><span class="glyphicon glyphicon-import"></a></p>
+					<p class='import-export'>&nbsp;Export bookmark&nbsp;<a href="#"><span class="glyphicon glyphicon-export"></a>
+					</p>
 				</div>
-		</div>
+
+				<div class=" nav-right col-md-4">
+						<div class="input-group">
+										<input type="text" class="form-control" placeholder="Search for...">
+										<span class="input-group-btn">
+										<button class="btn btn-default" type="button">Go!</button>
+										</span>
+						</div>
+					</div>
+			</div>
+	</nav>
+	<div class ="container-fluid">
+
 		<div class="row">
 		  <div class="col-md-4">
 				<div id="facebook" class="cards">

@@ -26,9 +26,7 @@ body{
 	margin-left: 240px;
 }
 
-#sort-controls{
-	padding-left: 4%;
-}
+
 
 .cards{
 	position: relative;
@@ -231,9 +229,9 @@ table a:hover	{
 	text-align:center;
 
 }
-table,th, tr, td{
+/*table,th, tr, td{
 	text-align : center;
-}
+}*/
 
 .input-option{
 	width: 100%;
@@ -242,5 +240,34 @@ table,th, tr, td{
 	margin-bottom: 6px;
 	border: solid 1px black;
 	border-radius: 2px;
-	
+
+}
+
+.icon{
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.filled{
+	color: gold;
+}
+
+nav{
+	border-bottom: 1px solid #BCBCBC;
+	padding-bottom: 15px;
+	overflow: hidden;
+
+}
+
+.nav-right .input-group{
+	padding-right: 4%;
+	padding-left: 4%;
+}
+#sort-controls{
+	padding-left: 4%;
+}
+.import-export{
+	display:inline;
+	margin-left: 8px;
+
 }
