@@ -97,8 +97,13 @@ body{
 	margin-left: 20px;
 }
 
-.container  h2, .side-bar h2{
+.container  h2{
+	padding-top: 20px;
+	color: #43aea8;
+}
 
+.side-bar h2{
+	display: inline-block;
 	color: #43aea8;
 }
 table{
@@ -288,4 +293,10 @@ table a:hover	{
 hr{
 	border-top: 1px solid #BCBCBC !important;
 
+}
+
+.fa-plus-square-o{
+	margin-left: 5px;
+	font-size:24px !important;
+	color: black;
 }
