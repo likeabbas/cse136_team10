@@ -2,8 +2,8 @@
 <html>
 <head>
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="style.css">
+   	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<link rel="stylesheet" type="text/css" href="style.css">
 	<title>Add a new Bookmark</title>
 </head>
 <body>
@@ -14,21 +14,19 @@
 			<p>Fill out the form with the requested values</p>
 			<input type="text" name="title" placeholder="title" required="true"><br>
 			<input type="url" name="url" placeholder="URL" required="true"><br>
-			<input type="text" name="keywords" placeholder="keywords"><br>
-			<input type="text" name="description" placeholder="Description"><br>
-			<label for="star">Star it?</label><input type="checkbox" name="star" id="star"><br>
+			<div class="folder">
+				<input type="checkbox" value="selected" id="social-folder" class="folder-input">
+				<label for="social-folder" class="social-label">Advanced Options</label>
+				<div role="folder" class="folder-content">
+					<input type="text" name="keywords" placeholder="keywords"><br>
+					<input type="text" name="description" placeholder="Description"><br>
+					<label for="star">Star it?</label><input type="checkbox" name="star" id="star"><br>
+				</div>
+			</div>
+			
 			<button type = "submit" id="confirm_add">Edit</button>
 			<button type = "button" id="cancel_add" onClick="location.href='assignment2.html'">Cancel</button>
-			<div class="folder">
-							<input type="checkbox" value="selected" id="social-folder" class="folder-input">
-							<label for="social-folder" class="social-label">Social Media</label>
-							<div role="folder" class="folder-content">
-								<li>Facebook</li>
-								<li>Instagram</li>
-								<li>Vine</li>
-								<li>Tumblr</li>
-							</div>
-						</div>
+			
 		</form>
 
   </div>
