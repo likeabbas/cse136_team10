@@ -304,6 +304,6 @@ table a:hover span {
 	text-align:center;
 }
 td{
-	padding-left:50%;
-	padding-right:5%;
+	margin-left:50%;
+	margin-right:5%;
 }
