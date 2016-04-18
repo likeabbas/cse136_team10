@@ -308,3 +308,11 @@ table,th, tr, td{
 	padding : 55px;
 	text-align : center;
 }
+
+#new{
+	display:table;
+}
+.new-cell{
+	display: table-cell;
+	vertical-align: middle;
+}
