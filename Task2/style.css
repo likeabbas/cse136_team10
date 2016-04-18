@@ -303,7 +303,7 @@ table a:hover span {
 	line-height: 50px;
 	text-align:center;
 }
-th, tr, td{
+table,th, tr, td{
 	padding : 55px;
 	text-align : center;
 }
