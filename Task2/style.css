@@ -302,7 +302,7 @@ table a:hover span {
 	color: white;
 	line-height: 50px;
 	text-align:center;
-	display:inline-block;
+	display:inline;
 }
 table,th, tr, td{
 	padding : 55px;
