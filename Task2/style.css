@@ -116,9 +116,7 @@ table a, table a:visited {
 	font-size: 1em;
 	font-weight: bold;
 }
-table a span {
-	display: none;
-}
+
 
 /* the IE correction rule */
 table a:hover	{
@@ -127,53 +125,7 @@ table a:hover	{
 	text-indent: 0; /* added the default value */
 }
 
-table a:hover span {
-	display: block;
-	position: absolute;
-	top: 0px;
-	left: 100px;
-	width: 320px;
-	margin: 0px;
-	padding: 10px;
-	color: white;
-	font-weight: normal;
-	/*background: rgb(239,64,86);*/
-	background: rgb(60,50,160);
-	text-align: left;
-	border-radius: 5px;
-	box-shadow:3px 3px 3px #777;
-}
 
-
-/*
-#delete-button-wrapper{
-	margin-bottom: 25px;
-
-}
-
-#delete-button-wrapper > button{
- 	border: solid 1px black;
-	background-color: white;
-	border-radius: 2px;
-	width: 50px;
-}
-
-
-
-#delete-button-wrapper > button{
- 	border: solid 1px black;
-	background-color: white;
-	border-radius: 2px;
-	width: 50px;
-}
-
-#delete-button-wrapper > button:hover{
-	cursor: pointer;
-	background-color: #43aea8;
-	color: white;
-	border: solid 1px #43aea8;
-}
-*/
 #edit-form{
 	width: 40%;
 	max-width: 480px;
@@ -211,10 +163,7 @@ table a:hover span {
 	border: solid 1px black;
 	border-radius: 2px;
 }
-#star{
-	display:inline;
-	width:10%;
-}
+
 #edit-form > button{
 	margin-top: 15px;
  	border: solid 1px black;
@@ -272,9 +221,6 @@ table a:hover span {
 
 .add-folder{
 	cursor: pointer;
-	/*position: fixed;
-	bottom: 50px;
-	left: 95px;*/
 	width: 50px;
 	height: 50px;
 	background-color: rgb(239,64,86);
@@ -286,17 +232,16 @@ table a:hover span {
 
 }
 table,th, tr, td{
-	padding : 55px;
 	text-align : center;
 }
-
+/*
 #new{
 	display:table;
 }
 .new-cell{
 	display: table-cell;
 	vertical-align: middle;
-}
+}*/
 .input-option{
 	width: 100%;
 	height: 20px;
