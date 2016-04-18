@@ -194,18 +194,24 @@
 	<div class="home-container">
 
 	<div class ="container-fluid">
-		<form id="sort-controls" action="sort.php" method="post">
-			<label>Sort your bookmarks by:</label>
-			<br/>
-			<input type="radio" name="sort_method" value="title" checked> Title
-			<input type="radio" name="sort_method" value="last_visited">Last Visited
-			<input type="radio" name="sort_method" value="most_visitedother">Most Visited
-		</form>
-		<p>
-			<a href="#">Import bookmark</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="#">Export bookmark</a>
-		</p>
+		<div class="row">
+			<div class="col-md-offset-1 col-md-3">
+				<form id="sort-controls" action="sort.php" method="post">
+					<label>Sort your bookmarks by:</label>
+					<br/>
+					<input type="radio" name="sort_method" value="title" checked> Title
+					<input type="radio" name="sort_method" value="last_visited">Last Visited
+					<input type="radio" name="sort_method" value="most_visitedother">Most Visited
+				</form>
+			</div>
+			<div class="col-md-4">
+				<p>
+					<a href="#">Import bookmark</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="#">Export bookmark</a>
+				</p>
+			</div>
+		</div>
 		<div class="row">
 		  <div class="col-md-4">
 				<div id="facebook" class="cards">
