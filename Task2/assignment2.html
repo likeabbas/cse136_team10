@@ -7,6 +7,7 @@
 	<title>architecture</title>
 </head>
 <body>
+<<<<<<< HEAD
 	<div class="container">
 		<h2>Bookmarx</h2>
 		
@@ -21,6 +22,13 @@
 		<a href="add.html">Add a new Bookmark</a>
 		<br/>
 		<br/>
+=======
+	<div class="side-bar">
+		<h1>BookMarx</h1>
+
+		<div class = "folder-wrapper">
+		<h2>Favorites</h2>
+>>>>>>> feature/daniels_branch
 		<table>
 			<tr>
 				<td>
@@ -31,7 +39,7 @@
 				<strong>Description</strong>: facebook page<br/>
 				<strong>Keywords </strong>: facebook, profile, social network<br/>
 
-				<form action="edit.html" method="post">
+				<form action="edit.php" method="post">
 				<button class="btn-edit">Edit</button>
 				</form>
 				<form action="delete.html" method="post">
@@ -83,7 +91,11 @@
 				</a>
 				</td>
 				<td>
+<<<<<<< HEAD
 					<img src="./images/star_gold.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark"> 
+=======
+					<img src="./images/star_gold.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
+>>>>>>> feature/daniels_branch
 				</td>
 			</tr>
 			<tr>
@@ -106,10 +118,14 @@
 				<td>
 					<img src="./images/star_gold.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
 				</td>
+<<<<<<< HEAD
 			</tr>
 			<tr>
+=======
+			</tr><tr>
+>>>>>>> feature/daniels_branch
 				<td >
-				<a href="">GitHub 
+				<a href="">GitHub
 				<span>
 				<strong>Title</strong>: My GitHub Repository<br/>
 				<strong>URL</strong>: https://github.com/ <br/>
@@ -128,14 +144,72 @@
 					<img src="./images/star_white.png" alt="stared" title="Click to unstar a stared bookmark, or star a bookmark">
 				</td>
 			</tr>
-
 		</table>
+<<<<<<< HEAD
 		
 		<a href="#" >Import bookmark</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<a href="#" >Export bookmark</a>
 		
 		
                           
+=======
+		<h2>Folders</h2>
+		<table id = "folders">
+			<tr>
+				<td>
+					<div class="tooltip">
+					  <input type="checkbox" value="selected" id="social-folder" class="folder-input">
+					  	<label for="social-folder" class="social-label">Social Media</label>
+					  <div role="folder" class="folder-content">
+							<li>Facebook</li>
+							<li>Instagram</li>
+							<li>Vine</li>
+							<li>Tumblr</li>
+					 </div>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<div class="tooltip">
+					  <input type="checkbox" value="selected" id="class-folder" class="folder-input">
+					  	<label for="class-folder" class="social-label">Class</label>
+					  <div role="folder" class="folder-content">
+							<li>CSE 136 </li>
+							<li>CSE 141 </li>
+							<li>CSE 120 </li>
+					 </div>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<a href="#" >Import bookmark</a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<a href="#" >Export bookmark</a>
+	</div>
+		<div class="add-folder">	+
+		</div>
+	</div>
+
+	<div class="home-container">
+		<form action="sort.php" method="post">
+			<label>Sort your bookmarks by:</label><br/>
+			<input type="radio" name="sort_method" value="title" checked> Title
+  			<input type="radio" name="sort_method" value="last_visited">Last Visited
+  			<input type="radio" name="sort_method" value="most_visitedother">Most Visited
+		</form>
+		<div id = "facebook" class="cards">
+			<h1>Facebook</h1>
+			<p class="bookmark-description">
+				This is the description of facebook. It was created by the homie Mark. His favorite color is obviously blue.
+			</p>
+			<a style="text-decoration: none" href="https://facebook.com" target="_blank">
+	      <div class="bookmark-button">
+					<p>Link</p>
+				</div>
+    	</a>
+			<p class="tags"><span>Tags: </span>facebook, profile, social network</p>
+		</div>
+>>>>>>> feature/daniels_branch
 	</div>
 </body>
 </html>
