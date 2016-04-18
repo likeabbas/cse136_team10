@@ -221,7 +221,7 @@ table a:hover	{
 	cursor: pointer;
 	width: 130px;
 	height: 30px;
-	background-color: rgb(239,64,86);
+	background-color: #EF4056;
 	font-size: 15px;
 	color: white;
 	line-height: 30px;
@@ -229,6 +229,10 @@ table a:hover	{
 	border-radius: 3px;
 	margin-top: 35px;
 	margin-bottom: 10px;
+}
+
+.add-folder:hover{
+	background-color:#D7394D
 }
 /*table,th, tr, td{
 	text-align : center;
@@ -242,6 +246,14 @@ table a:hover	{
 	border: solid 1px black;
 	border-radius: 2px;
 
+}
+
+.fa-trash-o, .fa-pencil-square-o{
+	color: black;
+}
+
+.fa-trash-o:hover, .fa-pencil-square-o:hover{
+	color: #43aea8;
 }
 
 .icon{
