@@ -300,3 +300,11 @@ hr{
 	font-size:24px !important;
 	color: black;
 }
+
+.btn-form{
+	border:none;
+	background-color:rgb(239,64,86);
+	color:white;
+	font-family:"Centuty Gothic";
+	font-size:1.5em;
+}
