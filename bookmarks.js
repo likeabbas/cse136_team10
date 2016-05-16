@@ -65,6 +65,11 @@ module.exports.insert = function(req, res){
   });
 };
 
+/*** Function to serve the edit bookmark view
+ *
+ * @param req
+ * @param res
+ */
 module.exports.edit = function(req, res) {
   var id = req.params.bookmark_id;
   db.query('SELECT * from bookmark WHERE title = ' + "'" + id + "'", function(err, bookmark) {
@@ -73,7 +78,11 @@ module.exports.edit = function(req, res) {
   });
 };
 
-
+/*** Function to edit a bookmark
+ *
+ * @param req
+ * @param res
+ */
 module.exports.update = function(req,res){
   var id = req.params.bookmark_id;
   var title = db.escape(req.body.title);
@@ -104,3 +113,28 @@ module.exports.update = function(req,res){
     res.redirect('/bookmarks');
   });
 }
+
+/*** Function to serve the confirmation of deleting a bookmark
+ *
+ * @param req
+ * @param res
+ */
+module.exports.confirmDelete = function(req,res){
+  var id = req.params.bookmark_id;
+  db.query('SELECT * from bookmark WHERE title = ' + "'" + id + "'", function(err, bookmark) {
+    if (err) throw err;
+    res.render('bookmarks/confirm-delete', {bookmark: bookmark[0]});
+  });
+
+}
+/*** Function to delete a bookmark
+ *
+ * @param req
+ * @param res
+ */
+
+module.exports.delete = function(req,res){
+
+}
+
+
