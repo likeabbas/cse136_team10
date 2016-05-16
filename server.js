@@ -46,6 +46,9 @@ app.get('/bookmarks', bookmarks.list);
 app.get('/bookmarks/add', bookmarks.add);
 app.post('/bookmarks/insert', bookmarks.insert);
 
+app.get('/bookmarks/edit', bookmarks.edit);
+app.post('/bookmarks/update', bookmarks.update);
+
 
 app.get('/books', books.list);
 app.get('/books/add', books.add);
