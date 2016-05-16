@@ -101,6 +101,6 @@ module.exports.insert = function(req, res){
 
   db.query(queryString, function(err){
     if (err) throw err;
-    res.redirect('/bookmark');
+    res.redirect('/bookmarks');
   });
 };
