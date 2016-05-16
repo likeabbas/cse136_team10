@@ -15,12 +15,12 @@ var list = module.exports.list = function(req, res) {
   db.query('SELECT * from bookmark where username = ' + db.escape(user), function (err, bookmarks) {
     if (err) throw err;
     // console.log(bookmarks);
-    res.render('bookmarks/list.ejs', {bookmarks: bookmarks});
+    res.render('./views/bookmarks/list.ejs', {bookmarks: bookmarks});
   });
 };
 
 module.exports.add = function(req, res) {
-  res.render('bookmarks/add.ejs');
+  res.render('./views/bookmarks/add.ejs');
 };
 
 module.exports.insert = function(req, res){
