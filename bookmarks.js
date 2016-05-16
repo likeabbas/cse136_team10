@@ -19,6 +19,46 @@ var list = module.exports.list = function(req, res) {
   });
 };
 
+var list = module.exports.sortTitle = function(req, res) {
+  db.query('SELECT * from bookmark ORDER BY title', function(err, bookmarks) {
+    if (err) throw err;
+
+    res.render('bookmarks/list', {bookmarks: bookmarks});
+  });
+};
+
+var list = module.exports.sortURL = function(req, res) {
+  db.query('SELECT * from bookmark ORDER BY url', function(err, bookmarks) {
+    if (err) throw err;
+
+    res.render('bookmarks/list', {bookmarks: bookmarks});
+  });
+};
+
+var list = module.exports.sortLastVisit = function(req, res) {
+  db.query('SELECT * from bookmark ORDER BY lastvisit', function(err, bookmarks) {
+    if (err) throw err;
+
+    res.render('bookmarks/list', {bookmarks: bookmarks});
+  });
+};
+
+var list = module.exports.sortCreateDate = function(req, res) {
+  db.query('SELECT * from bookmark ORDER BY createdate', function(err, bookmarks) {
+    if (err) throw err;
+
+    res.render('bookmarks/list', {bookmarks: bookmarks});
+  });
+};
+
+var list = module.exports.sortStar = function(req, res) {
+  db.query('SELECT * from bookmark ORDER BY star DESC', function(err, bookmarks) {
+    if (err) throw err;
+
+    res.render('bookmarks/list', {bookmarks: bookmarks});
+  });
+};
+
 module.exports.add = function(req, res) {
   res.render('bookmarks/add.ejs');
 };
