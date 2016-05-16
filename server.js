@@ -1,6 +1,7 @@
 var config = require('./config');
 var db = require('./db');
 var books = require('./books');
+var bookmarks = require('./bookmarks');
 var users = require('./users');
 var md5 = require('./md5');
 
@@ -19,6 +20,8 @@ var mySession = session({
 var app = express();
 app.use(mySession);
 
+app.use("/styles",express.static("./views/styles"));
+
 /*  Not overwriting default views directory of 'views' */
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -29,10 +32,19 @@ app.get('/login', users.loginForm);
 app.post('/login', users.login);
 app.get('/logout', users.logout);
 
+app.get('/error', function(req, res) {
+  res.render('./views/users/error.ejs')
+
+});
+
 app.post('/newAccountForm', users.newAccountForm);
 app.post('/newAccount', users.newAccount);
 /*  This must go between the users routes and the books routes */
 app.use(users.auth);
+
+app.get('/bookmarks', bookmarks.list);
+app.get('/bookmarks/add', bookmarks.add);
+app.post('/bookmarks/insert', bookmarks.insert);
 
 app.get('/books', books.list);
 app.get('/books/add', books.add);

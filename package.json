@@ -12,7 +12,9 @@
     "mysql": "^2.10.2",
     "npm": "^3.8.8"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "regex": "^0.1.0"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
