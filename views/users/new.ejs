@@ -42,12 +42,12 @@
         }
         else{
             if(x == x2){
-                if (x.length < 7){
-                    alert("Your password is too short. It has to be 7 characters long");
-                    return false;
+                if (x.length >= 7){
+                    return true;
                 }
                 else{
-                    return true;
+                    alert("Your password is too short. It has to be 7 characters long");
+                    return false;
                 }
             }
             else{
