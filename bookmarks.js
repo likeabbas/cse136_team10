@@ -134,7 +134,12 @@ module.exports.confirmDelete = function(req,res){
  */
 
 module.exports.delete = function(req,res){
+  var id = req.params.bookmark_id;
 
+  db.query('DELETE FROM bookmark WHERE title =' + db.escape(id), function(err, bookmark){
+    if(err) throw err;
+    res.redirect('/bookmarks');
+  });
 }
 
 
