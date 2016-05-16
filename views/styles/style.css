@@ -269,6 +269,16 @@ table a:hover	{
 
 }
 
+#tagHolder {
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+}
+
+.keywordInput {
+
+}
+
 .fa-trash-o, .fa-pencil-square-o{
 	color: black;
 }

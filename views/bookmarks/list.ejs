@@ -24,7 +24,7 @@
             <% bookmarks.forEach(function(bookmark) { %>
             <tr>
                 <td style="width:110px">
-                    <a href="">bookmark.title</a>
+                    <a href=""><%=bookmark.title%></a>
                 </td>
 
                 <td class = "icon pencil">
@@ -127,19 +127,17 @@
 
 
         <div class="row">
-            <% bookmarks.forEach(function(bookmark) { %>
+            <% bookmarks.forEach(function(bookmark) {%>
             <div class="col-md-4">
                 <div id="facebook" class="cards">
-                    <h1>bookmark.title</h1>
-                    <p class="bookmark-description">
-                        bookmark.description
-                    </p>
+                    <h1><%=bookmark.title%></h1>
+                    <p class="bookmark-description"><%=bookmark.description%></p>
                     <a style="text-decoration: none" href="#" target="_blank">
                         <div class="bookmark-button">
                             <p>Link</p>
                         </div>
                     </a>
-                    <p class="tags"><span>Tags: </span>facebook, profile, social network</p>
+                    <p class="tags"><span>Tags: </span><% if(bookmark.tag1) {%><%= bookmark.tag1 %><% } %> <% if(bookmark.tag2) {%><%= bookmark.tag2%><% } %> <% if(bookmark.tag2) {%><%= bookmark.tag3%><% } %> <% if(bookmark.tag2) {%><%= bookmark.tag4%><% } %></p>
                 </div>
             </div>
             <% }); %>

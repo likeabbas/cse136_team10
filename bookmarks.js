@@ -3,8 +3,10 @@
  */
 var db = require('./db');
 var regex = require("regex");
+var users = require('./users');
 
 var list = module.exports.list = function(req, res) {
+
   console.log(req.session.user);
   if (!req.session) res.redirect('/error');
   //if (!req.session.user )
@@ -22,14 +24,19 @@ module.exports.add = function(req, res) {
 };
 
 module.exports.insert = function(req, res){
-  if (!req.session) res.redirect('/error');
+  // if (!req.session) res.redirect('/error');
   var user = req.session.user;
 
   var title = db.escape(req.body.title);
   var url = db.escape(req.body.url);
-  var keywords = db.escape(req.body.keywords);
   var description = db.escape(req.body.description);
   var star = 0;
+
+  var tag = ['NULL', 'NULL', 'NULL', 'NULL'];
+  if (req.body.tag1) tag[0] = req.body.tag1;
+  if (req.body.tag2) tag[1] = req.body.tag2;
+  if (req.body.tag3) tag[2] = req.body.tag3;
+  if (req.body.tag4) tag[3] = req.body.tag4;
 
   var date = new Date();
   date =  date = date.getUTCFullYear() + '-' +
@@ -48,14 +55,9 @@ module.exports.insert = function(req, res){
     console.log("urlreg");
     res.redirect('/error');
   }
-  var keywordExp = /,\s?/;
-  // var keywordRegex = new RegExp(keywordExp);
-  // if (!keywords.match(keywordRegex)) {
-  //   console.log("keywordreg");
-  //   res.redirect('/error');
-  // }
 
-  var queryString = 'INSERT INTO bookmark (username, title, url, description, star, tag1, tag2, tag3, tag4, creationDate, lastVisit, counter, folder) VALUES (' + db.escape(user) + ', ' + title  + ', '  + url + ', ' + description + ', ' + db.escape(star) + ', ' + 'NULL, ' + 'NULL, ' + 'NULL, ' + 'NULL, ' +  db.escape(date) + ', ' + db.escape(date) + ', ' + db.escape(0) + ', ' + 'NULL' + ')';
+
+  var queryString = 'INSERT INTO bookmark (username, title, url, description, star, tag1, tag2, tag3, tag4, creationDate, lastVisit, counter, folder) VALUES (' + db.escape(user) + ', ' + title  + ', '  + url + ', ' + description + ', ' + db.escape(star) + ', ' + db.escape(tag[0]) + ', ' + db.escape(tag[1]) + ', ' + db.escape(tag[2]) + ', ' + db.escape(tag[3]) + ', ' +  db.escape(date) + ', ' + db.escape(date) + ', ' + db.escape(0) + ', ' + 'NULL' + ')';
 
   db.query(queryString, function(err){
     if (err) throw err;
