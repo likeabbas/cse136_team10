@@ -5,6 +5,7 @@
 var config = require('./config');
 var db = require('./db');
 var md5 = require('./md5');
+var error = require('./error');
 var mainUser;
 /**
  *
@@ -35,18 +36,18 @@ module.exports.login = function(req, res) {
                 res.redirect('/bookmarks');
             }
             else{
-              res.render('users/errorBadLogin');
+              res.render('error', {errorType : error.password});
             }
           }
           else{
-            res.render('users/errorDB');
+            res.render('error', {errorType: error.unknownUser});
           }
       }
     });
   }
   else{
     //Alert message : all the fiels have not been filled up
-    res.render('users/errorBadForm');
+    res.render('error', error.form);
   }
 };
 
