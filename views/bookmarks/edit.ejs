@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/style.css">
+	<title>Edit a Bookmark</title>
+</head>
+<body>
+  <div class="container">
+    <form action="/bookmarks/update/<%= bookmark.title %>" method="post" id="edit-form">
+			<h2>Bookmarx</h2>
+			<p>Edit <i>Title of selected Bookmark</i></p>
+			<p>Write the new values for this bookmark and click Edit</p>
+			<input type="text" name="title" placeholder="Title" required="true" value="<%= bookmark.title %>"><br>
+			<input type="url" name="url" placeholder="URL" required="true" value="<%= bookmark.url %>"><br>
+      <div class="folder">
+        <input type="checkbox" value="selected" id="social-folder" class="folder-input">
+        <label for="social-folder" class="social-label">Advanced Options</label>
+        <div role="folder" class="folder-content">
+            <div id="tagHolder">
+                <input class="input-option tag1" type="text" name="tag1" placeholder="Tag 1" value="<%= bookmark.tag1 %>"><br>
+                <input class="input-option tag2" type="text" name="tag2" placeholder="Tag 2" value="<%= bookmark.tag1 %>"><br>
+                <input class="input-option tag3" type="text" name="tag3" placeholder="Tag 3" value="<%= bookmark.tag1 %>"><br>
+                <input class="input-option tag4" type="text" name="tag4" placeholder="Tag 4" value="<%= bookmark.tag1 %>"><br>
+            </div>
+          <input class="input-option" type="text" name="description" placeholder="Description" value="<%= bookmark.description %>"><br>
+          <input class="input-option" type="text" name="folder" placeholder="Folder" value = "<%= bookmark.folder %>"><br>
+          <label for="star">Star it?</label><input type="checkbox" name="star" id="star"><br>
+        </div>
+      </div>
+        <button class="btn-form" type = "submit" id="confirm_edit">EDIT</button>
+        <button class="btn-form" type = "button" id="cancel_edit" onClick="location.href='assignment2.html'" style="float:right">CANCEL</button>
+		</form>
+
+  </div>
+</body>
+</html>
