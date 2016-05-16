@@ -36,7 +36,7 @@ var list = module.exports.sortURL = function(req, res) {
 };
 
 var list = module.exports.sortLastVisit = function(req, res) {
-  db.query('SELECT * from bookmark ORDER BY lastVisit', function(err, bookmarks) {
+  db.query('SELECT * from bookmark ORDER BY lastVisit DESC', function(err, bookmarks) {
     if (err) throw err;
 
     res.render('bookmarks/list', {bookmarks: bookmarks});
