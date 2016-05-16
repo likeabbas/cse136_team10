@@ -5,6 +5,8 @@
 var config = require('./config');
 var db = require('./db');
 var md5 = require('./md5');
+var error = require('./error');
+var mainUser;
 /**
  *
  * Attempt to login the user.  Redirect to /books on successful login and /login on unsuccessful attempt.
@@ -16,6 +18,7 @@ module.exports.login = function(req, res) {
 
     //Fetch the login fields
     var userInput = req.body.username;
+    mainUser = userInput;
     var pwdInput = req.body.password;
     var pwdInputCrypted = md5(pwdInput, userInput);
     //Look into the data base if there is a login matching the input
@@ -30,21 +33,21 @@ module.exports.login = function(req, res) {
             console.log(results[0].password);
             if (userInput===results[0].username && pwdInputCrypted===results[0].password) {
                 req.session.user = userInput;
-                res.redirect('/books');
+                res.redirect('/bookmarks');
             }
             else{
-              res.render('users/errorBadLogin');
+              res.render('error', {errorType : error.password});
             }
           }
           else{
-            res.render('users/errorDB');
+            res.render('error', {errorType: error.unknownUser});
           }
       }
     });
   }
   else{
     //Alert message : all the fiels have not been filled up
-    res.render('users/errorBadForm');
+    res.render('error', error.form);
   }
 };
 

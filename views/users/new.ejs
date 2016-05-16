@@ -17,6 +17,10 @@
             <!--No alert on this field by the browser. Need a JS code to do the alert before sending the form-->
         </tr>
         <tr>
+            <td>Confirm your password: </td><td><input type="password" id="password2" name="password2" value="" placeholder="Write your password again" required="true" minlength="7"></td>
+            <!--No alert on this field by the browser. Need a JS code to do the alert before sending the form-->
+        </tr>
+        <tr>
             <td>First Name: </td><td><input type="text" id="name" name="name"  value="" placeholder="Write your name" required="true"  ></td>
         </tr>
         <tr>
@@ -31,17 +35,25 @@
 <script>
     function validateForm(){
         var x = document.getElementById('password').value;
+        var x2 = document.getElementById('password2').value;
         if (x == null || x == "") {
         alert("The password must be filled out");
         return false;
         }
         else{
-            if (x.length < 7){
-                alert("Your password is too short. It has to be 7 characters long");
-                return false;
+            if(x === x2){
+                if (x.length >= 7){
+                    return true;
+                }
+                else{
+                    alert("Your password is too short. It has to be 7 characters long");
+                    return false;
+                }
             }
             else{
-                return true;
+                alert("Your confirmation password is not the same as your original password.");
+                return false;
+                
             }
         }
     }
