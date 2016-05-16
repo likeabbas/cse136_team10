@@ -64,3 +64,38 @@ module.exports.insert = function(req, res){
     res.redirect('/bookmarks');
   });
 };
+
+module.exports.edit = function(req, res) {
+  res.render('bookmarks/edit.ejs');
+};
+
+module.exports.update = function(req,res){
+  var id = req.params.bookmark_id;
+  var title = db.escape(req.body.title);
+  var url = db.escape(req.body.url);
+  var description = db.escape(req.body.description);
+  var star = 0;
+
+  var tag = ['NULL', 'NULL', 'NULL', 'NULL'];
+  if (req.body.tag1) tag[0] = req.body.tag1;
+  if (req.body.tag2) tag[1] = req.body.tag2;
+  if (req.body.tag3) tag[2] = req.body.tag3;
+  if (req.body.tag4) tag[3] = req.body.tag4;
+
+  if (req.body.star) star = "on";
+
+  var urlExpression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  var urlRegex = new RegExp(urlExpression);
+  if (!url.match(urlRegex)) {
+    // change all errors to specific ones
+    console.log("urlreg");
+    res.redirect('/error');
+  }
+
+  var queryString = 'UPDATE bookmark SET title = ' + title + ', url = ' + url + ', description = ' + description + ', star = ' + star + ', tag1 = ' + tag1 + ', tag2 = ' + tag2 + ', tag3 = ' + tag3 + ', tag4 = ' + tag4 + ', folder = ' + folder + 'WHERE title = ' + "'" + id + "'";
+  console.log(queryString);
+  db.query(queryString, function(err){
+    if (err) throw err;
+    res.redirect('/bookmark');
+  });
+}
