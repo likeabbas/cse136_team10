@@ -42,7 +42,7 @@ var list = module.exports.list = function(req, res) {
           foldersHash[folders[i].folder] = [{"title": null, "url": null}];
         }
         // console.log(foldersHash);
-        console.log("names");
+        console.log(names);
         var nameObj = {name: names[0].name};
         // console.log(nameObj);
 
