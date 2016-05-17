@@ -50,7 +50,7 @@ var list = module.exports.list = function(req, res) {
 
 
         res.render('bookmarks/list.ejs', {bookmarks: bookmarks, folders: sortObject(foldersHash), name: names[0].name});
-      })
+      });
 
     });
   });
@@ -122,7 +122,7 @@ module.exports.add = function(req, res) {
 
 };
 
-module.exports.insert = function(req, res){
+module.exports.insert = function(req, res) {
   // if (!req.session) res.redirect('/error');
   var user = req.session.user;
 
@@ -138,12 +138,12 @@ module.exports.insert = function(req, res){
   if (req.body.tag4) tag[3] = req.body.tag4;
 
   var date = new Date();
-  date =  date = date.getUTCFullYear() + '-' +
-    ('00' + (date.getUTCMonth() + 1)).slice(-2) + '-' +
-    ('00' + date.getUTCDate()).slice(-2) + ' ' +
-    ('00' + date.getUTCHours()).slice(-2) + ':' +
-    ('00' + date.getUTCMinutes()).slice(-2) + ':' +
-    ('00' + date.getUTCSeconds()).slice(-2);
+  date = date = date.getUTCFullYear() + '-' +
+      ('00' + (date.getUTCMonth() + 1)).slice(-2) + '-' +
+      ('00' + date.getUTCDate()).slice(-2) + ' ' +
+      ('00' + date.getUTCHours()).slice(-2) + ':' +
+      ('00' + date.getUTCMinutes()).slice(-2) + ':' +
+      ('00' + date.getUTCSeconds()).slice(-2);
   if (req.body.star) star = 1;
 
   else star = 0;
@@ -155,17 +155,18 @@ module.exports.insert = function(req, res){
   var urlRegex = new RegExp(urlExpression);
 
   console.log("length of title" + title.length + ', ' + 'name of title: ' + title);
-  if(!titleRegex.test(title) || title.length > 20 ){
+  if (!titleRegex.test(title) || title.length > 20) {
     console.log("Error in title");
-    res.render('errors/error', {errorType : error.titleError});
+    res.render('errors/error', {errorType: error.titleError});
   }
-  else if(!urlRegex.test(url)){
+  else if (!urlRegex.test(url)) {
     console.log("Error in url");
-    res.render('errors/error', {errorType : error.urlError});
+    res.render('errors/error', {errorType: error.urlError});
   }
   else {
     var queryString = 'INSERT INTO bookmark (username, title, url, description, star, tag1, tag2, tag3, tag4, creationDate, lastVisit, counter, folder) VALUES (' + db.escape(
-            user) + ', ' + db.escape(title) + ', ' + url + ', ' + description + ', ' + db.escape(star) + ', ' + db.escape(
+            user) + ', ' + db.escape(title) + ', ' + url + ', ' + description + ', ' + db.escape(
+            star) + ', ' + db.escape(
             tag[0]) + ', ' + db.escape(tag[1]) + ', ' + db.escape(tag[2]) + ', ' + db.escape(tag[3]) + ', ' + db.escape(
             date) + ', ' + db.escape(date) + ', ' + db.escape(0) + ', ' + 'NULL' + ')';
 
@@ -177,10 +178,11 @@ module.exports.insert = function(req, res){
       res.redirect('/bookmarks');
     });
 
-  if (!url.match(urlRegex)) {
-    // change all errors to specific ones
-    res.render('./errors/error', {errorType: error.url});
+    if (!url.match(urlRegex)) {
+      // change all errors to specific ones
+      res.render('./errors/error', {errorType: error.url});
 
+    }
   }
 };
 
@@ -310,5 +312,3 @@ module.exports.star = function(req, res){
     });
   }
 };
-
-
