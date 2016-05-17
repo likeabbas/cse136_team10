@@ -46,6 +46,9 @@ app.get('/bookmarks', bookmarks.list);
 app.get('/bookmarks/add', bookmarks.add);
 app.post('/bookmarks/insert', bookmarks.insert);
 
+app.get('/folders/add', folders.add);
+app.post('/folders/insert', folders.insert);
+
 
 /*Sorting routes*/
 app.get('/sortTitle', bookmarks.sortTitle);
