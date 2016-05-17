@@ -45,7 +45,7 @@ app.use(users.auth);
 app.get('/bookmarks', bookmarks.list);
 app.get('/bookmarks/add', bookmarks.add);
 app.post('/bookmarks/insert', bookmarks.insert);
-app.get('/books/star/:book_id/:book_star(\\d+)', books.star);
+
 
 /*Sorting routes*/
 app.get('/sortTitle', bookmarks.sortTitle);
@@ -56,7 +56,7 @@ app.get('/sortLastVisit', bookmarks.sortLastVisit);
 
 app.get('/bookmarks/edit/:bookmark_id', bookmarks.edit);
 app.post('/bookmarks/update/:bookmark_id', bookmarks.update);
-
+app.get('/bookmarks/star/:bookmark_title/:bookmark_star(\\d+)', bookmarks.star);
 
 
 
