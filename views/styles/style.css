@@ -142,7 +142,7 @@ table a:hover	{
 	max-width: 480px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-bottom: 50px;
+	/*margin-bottom: 50px;*/
 }
 #edit-form> h2, #edit-form > p{
 	text-align: center;
@@ -258,6 +258,15 @@ table a:hover	{
 /*table,th, tr, td{
 	text-align : center;
 }*/
+
+#folderContainer {
+	display: flex; justify-content: center;
+	margin-top: 0;
+}
+
+#folderContainer h4 {
+	margin-top: 0;
+}
 
 .input-option{
 	width: 100%;
@@ -400,7 +409,8 @@ hr{
     width:25%;
     margin: auto;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom:50px;
 }
 #formLogin > h1{
     color: dodgerblue;
@@ -412,7 +422,7 @@ hr{
     border:none,
     
 }
-#signin:hover{
+#signin:hover, #loginButton:hover{
     color:white;
     background-color: rgb(239,64,86);
     border:none;
@@ -420,8 +430,19 @@ hr{
 #loginButton{
     border: none;
     color:dodgerblue;
-    background-color: white;
     font-size: 2em;
     float:right;
+    margin-top:15px;
+    margin-bottom:15px;
     
 }
+
+#errorMessage{
+    width:50%;
+    margin: auto;
+    color: dodgerblue;
+}
+#errorMessage > h1{
+    text-align: center;
+}
+
