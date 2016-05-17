@@ -56,7 +56,7 @@ app.get('/sortLastVisit', bookmarks.sortLastVisit);
 
 app.get('/bookmarks/edit/:bookmark_id', bookmarks.edit);
 app.post('/bookmarks/update/:bookmark_id', bookmarks.update);
-
+app.post('/search', bookmarks.search);
 
 
 
