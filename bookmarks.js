@@ -143,4 +143,23 @@ module.exports.update = function(req,res){
     if (err) throw err;
     res.redirect('/bookmarks');
   });
-}
+};
+
+module.exports.star = function(req, res){
+  var title = req.params.bookmark_title;
+  var star = req.params.bookmark_star;
+  if (star == 0){
+    db.query('update bookmark set star=1 where title =' + title, function(err){
+      if (err) throw err;
+      res.redirect('/bookmarks');
+    });
+  }
+  else{
+     db.query('update bookmar set star=0 where title =' + title, function(err){
+      if (err) throw err;
+      res.redirect('/bookmarks');
+    });
+  }
+};
+
+
