@@ -50,7 +50,7 @@ body{
 }
 .bookmark-button{
 	position: absolute;
-	margin-left: 20px;
+	left: 20px;
 	border: solid 1px black;
 	height: 25px;
 	width: 50px;
@@ -297,12 +297,29 @@ table a:hover	{
 
 .filled{
 	color: gold;
+}
+
+/*.fa-star-o{
+	color: gold;
+}*/
+
+.nav-right {
+	display: inline;
+	position: absolute;
+	right: 5%;
 
 }
 
-.nav-right .input-group{
-	padding-right: 4%;
-	padding-left: 4%;
+.nav-left {
+	display: inline;
+}
+.input-group .form-control {
+	max-width: 200px !important;
+	float: right !important;
+}
+
+.input-group{
+	padding-bottom: 10px;
 }
 #sort-controls{
 	padding-left: 4%;
@@ -310,11 +327,31 @@ table a:hover	{
 }
 .import-export{
 	display:inline;
-	margin-left: 8px;
+	margin-left: 4px;
+	font-size: 12px;
 
 }
+.import-export > p{
+	display: inline;
+}
 
+.import-export-folder{
+	margin-bottom: 10px;
+}
 
+.import-export-folder > .import-export{
+	margin-left: 0;
+}
+
+.import-export-btn{
+	display:inline;
+	margin-right: 4px;
+	font-size: 10px;
+}
+
+.import-export-btn > p{
+	display: inline;
+}
 .fix-height{
 	height:33px !important;
 }
@@ -348,4 +385,11 @@ hr{
 #helloUser{
 	padding: 0;
 	padding-left: 30px;
+}
+
+.crud-btns{
+	position: absolute;
+	right: 20px;
+	bottom: 20px;
+
 }

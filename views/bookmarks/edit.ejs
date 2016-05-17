@@ -20,19 +20,17 @@
         <div role="folder" class="folder-content">
             <div id="tagHolder">
                 <input class="input-option tag1" type="text" name="tag1" placeholder="Tag 1" value="<%= bookmark.tag1 %>"><br>
-                <input class="input-option tag2" type="text" name="tag2" placeholder="Tag 2" value="<%= bookmark.tag1 %>"><br>
-                <input class="input-option tag3" type="text" name="tag3" placeholder="Tag 3" value="<%= bookmark.tag1 %>"><br>
-                <input class="input-option tag4" type="text" name="tag4" placeholder="Tag 4" value="<%= bookmark.tag1 %>"><br>
+                <input class="input-option tag2" type="text" name="tag2" placeholder="Tag 2" value="<%= bookmark.tag2 %>"><br>
+                <input class="input-option tag3" type="text" name="tag3" placeholder="Tag 3" value="<%= bookmark.tag3 %>"><br>
+                <input class="input-option tag4" type="text" name="tag4" placeholder="Tag 4" value="<%= bookmark.tag4 %>"><br>
             </div>
           <input class="input-option" type="text" name="description" placeholder="Description" value="<%= bookmark.description %>"><br>
           <input class="input-option" type="text" name="folder" placeholder="Folder" value = "<%= bookmark.folder %>"><br>
-          <label for="star">Star it?</label><input type="checkbox" name="star" id="star"><br>
         </div>
       </div>
         <button class="btn-form" type = "submit" id="confirm_edit">EDIT</button>
-        <button class="btn-form" type = "button" id="cancel_edit" onClick="location.href='assignment2.html'" style="float:right">CANCEL</button>
+        <button class="btn-form" type = "button" id="cancel_edit" onClick="location.href='/bookmarks'" style="float:right">CANCEL</button>
 		</form>
-
   </div>
 </body>
 </html>

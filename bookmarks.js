@@ -66,6 +66,21 @@ var list = module.exports.sortStar = function(req, res) {
   });
 };
 
+var list = module.exports.search = function(req,res){
+  var searchTitle = req.body.searchString;
+  var sql = " SELECT * FROM bookmark WHERE title LIKE '%" + searchTitle + "%' OR url LIKE'%" + searchTitle + "%'"; 
+
+    db.query(sql, function(err, bookmarks){
+
+      if(err){
+        throw(err);
+      }
+      else{
+        res.render('bookmarks/list', {bookmarks: bookmarks});
+      }
+  });
+};
+
 module.exports.add = function(req, res) {
   res.render('bookmarks/add.ejs');
 };
@@ -94,6 +109,9 @@ module.exports.insert = function(req, res){
     ('00' + date.getUTCSeconds()).slice(-2);
   if (req.body.star) star = 1;
 
+  else star = 0;
+
+
 
   var urlExpression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
   var urlRegex = new RegExp(urlExpression);
@@ -112,6 +130,11 @@ module.exports.insert = function(req, res){
   });
 };
 
+/*** Function to serve the edit bookmark view
+ *
+ * @param req
+ * @param res
+ */
 module.exports.edit = function(req, res) {
   var id = req.params.bookmark_id;
   db.query('SELECT * from bookmark WHERE title = ' + "'" + id + "'", function(err, bookmark) {
@@ -120,7 +143,11 @@ module.exports.edit = function(req, res) {
   });
 };
 
-
+/*** Function to edit a bookmark
+ *
+ * @param req
+ * @param res
+ */
 module.exports.update = function(req,res){
   var id = req.params.bookmark_id;
   var title = db.escape(req.body.title);
@@ -150,19 +177,50 @@ module.exports.update = function(req,res){
     if (err) throw err;
     res.redirect('/bookmarks');
   });
+
+}
+
+/*** Function to serve the confirmation of deleting a bookmark
+ *
+ * @param req
+ * @param res
+ */
+module.exports.confirmDelete = function(req,res){
+  var id = req.params.bookmark_id;
+  db.query('SELECT * from bookmark WHERE title = ' + "'" + id + "'", function(err, bookmark) {
+    if (err) throw err;
+    res.render('bookmarks/confirm-delete', {bookmark: bookmark[0]});
+  });
+
+}
+/*** Function to delete a bookmark
+ *
+ * @param req
+ * @param res
+ */
+
+module.exports.delete = function(req,res){
+  var id = req.params.bookmark_id;
+  var user = req.session.user;
+  db.query('DELETE FROM bookmark WHERE title =' + db.escape(id) + 'AND username =' + db.escape(user) , function(err, bookmark){
+    if(err) throw err;
+    res.redirect('/bookmarks');
+  });
 };
+
 
 module.exports.star = function(req, res){
   var title = req.params.bookmark_title;
   var star = req.params.bookmark_star;
-  if (star == 0){
-    db.query('update bookmark set star=1 where title =' + title, function(err){
+
+  if (star === '0'){
+    db.query('update bookmark set star=1 where title =' + db.escape(title), function(err){
       if (err) throw err;
       res.redirect('/bookmarks');
     });
   }
   else{
-     db.query('update bookmar set star=0 where title =' + title, function(err){
+     db.query('update bookmark set star=0 where title =' + db.escape(title), function(err){
       if (err) throw err;
       res.redirect('/bookmarks');
     });

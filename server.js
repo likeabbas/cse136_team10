@@ -60,10 +60,14 @@ app.get('/sortLastVisit', bookmarks.sortLastVisit);
 
 app.get('/bookmarks/edit/:bookmark_id', bookmarks.edit);
 app.post('/bookmarks/update/:bookmark_id', bookmarks.update);
-app.get('/bookmarks/star/:bookmark_title/:bookmark_star(\\d+)', bookmarks.star);
 
+app.get('/bookmarks/star/:bookmark_title/:bookmark_star(\\d)', bookmarks.star);
 
+app.get('/bookmarks/confirm-delete/:bookmark_id',bookmarks.confirmDelete);
+app.post('/bookmarks/delete/:bookmark_id',bookmarks.delete);
+app.post('/search', bookmarks.search);
 
+/*
 app.get('/books', books.list);
 app.get('/books/add', books.add);
 app.get('/books/edit/:book_id(\\d+)', books.edit);
@@ -71,7 +75,7 @@ app.get('/books/confirmdelete/:book_id(\\d+)', books.confirmdelete);
 app.get('/books/delete/:book_id(\\d+)', books.delete);
 app.post('/books/update/:book_id(\\d+)', books.update);
 app.post('/books/insert', books.insert);
-
+*/
 app.listen(config.PORT, function () {
   console.log('Example app listening on port ' + config.PORT + '!');
 });
