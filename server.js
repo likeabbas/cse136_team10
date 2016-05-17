@@ -1,8 +1,7 @@
-var books = require('./books');
-var bookmarks = require('./bookmarks');
 var config = require('./config');
 var db = require('./db');
-var folders = require('./folders');
+var books = require('./books');
+var bookmarks = require('./bookmarks');
 var users = require('./users');
 var md5 = require('./md5');
 
@@ -50,12 +49,18 @@ app.post('/bookmarks/insert', bookmarks.insert);
 app.get('/folders/add', folders.add);
 app.post('/folders/insert', folders.insert);
 
+
 /*Sorting routes*/
 app.get('/sortTitle', bookmarks.sortTitle);
 app.get('/sortURL', bookmarks.sortURL);
 app.get('/sortStar', bookmarks.sortStar);
 app.get('/sortCreateDate', bookmarks.sortCreateDate);
 app.get('/sortLastVisit', bookmarks.sortLastVisit);
+
+app.get('/bookmarks/edit/:bookmark_id', bookmarks.edit);
+app.post('/bookmarks/update/:bookmark_id', bookmarks.update);
+app.get('/bookmarks/star/:bookmark_title/:bookmark_star(\\d+)', bookmarks.star);
+
 
 
 app.get('/books', books.list);
