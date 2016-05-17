@@ -65,6 +65,21 @@ var list = module.exports.sortStar = function(req, res) {
   });
 };
 
+var list = module.exports.search = function(req,res){
+  var searchTitle = req.body.searchString;
+  var sql = " SELECT * FROM bookmark WHERE title LIKE '%" + searchTitle + "%' OR url LIKE'%" + searchTitle + "%'"; 
+
+    db.query(sql, function(err, bookmarks){
+
+      if(err){
+        throw(err);
+      }
+      else{
+        res.render('bookmarks/list', {bookmarks: bookmarks});
+      }
+  });
+};
+
 module.exports.add = function(req, res) {
   res.render('bookmarks/add.ejs');
 };

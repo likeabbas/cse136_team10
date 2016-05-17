@@ -93,10 +93,10 @@
 
         <div class=" nav-right col-md-4">
             <div class="input-group">
-                <input type="text" class="form-control fix-height" placeholder="Search for...">
-							<span class="input-group-btn">
-							<button class="btn btn-default" type="button">Go!</button>
-							</span>
+                <form method="post" action="/search">
+                    <input type="text" class="form-control fix-height" name="searchString" placeholder="Search for...">
+                    <input class ="btn-btn-default" type="submit" value= "Go!">
+                </form>
             </div>
         </div>
         <div class="nav-right col-md-1">

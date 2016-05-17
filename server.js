@@ -60,7 +60,11 @@ app.get('/sortLastVisit', bookmarks.sortLastVisit);
 
 app.get('/bookmarks/edit/:bookmark_id', bookmarks.edit);
 app.post('/bookmarks/update/:bookmark_id', bookmarks.update);
+<<<<<<< HEAD
+app.post('/search', bookmarks.search);
+=======
 app.get('/bookmarks/star/:bookmark_title/:bookmark_star(\\d+)', bookmarks.star);
+>>>>>>> 7d56edd27b196aac2a081868ae8ee0791d7a5a1d
 
 
 
