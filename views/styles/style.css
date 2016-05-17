@@ -297,8 +297,11 @@ table a:hover	{
 
 .filled{
 	color: gold;
-
 }
+
+/*.fa-star-o{
+	color: gold;
+}*/
 
 .nav-right .input-group{
 	padding-right: 4%;

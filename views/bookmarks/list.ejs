@@ -105,15 +105,18 @@
                             <p>Link</p>
                         </div>
                     </a>
-                    <p class="tags"><span>Tags: </span><% if(bookmark.tag1) {%><%= bookmark.tag1 %><% } %>, <% if(bookmark.tag2) {%><%= bookmark.tag2%><% } %>, <% if(bookmark.tag3) {%><%= bookmark.tag3%><% } %>, <% if(bookmark.tag4) {%><%= bookmark.tag4%><% } %></p>
-
+                    <p class="tags"><span>Tags: </span><% if(bookmark.tag1) {%><%= bookmark.tag1 %><% } %> <% if(bookmark.tag2) {%><%= bookmark.tag2%><% } %> <% if(bookmark.tag3) {%><%= bookmark.tag3%><% } %> <% if(bookmark.tag4) {%><%= bookmark.tag4%><% } %></p>
                     <!--need to fix these links-->
                     <div class = "crud-btns">
                         <a class="import-export-btn" href="#"><span class="glyphicon glyphicon-export"></span><p>Export</p></a>
                         <a href="/bookmarks/edit/<%=bookmark.title%>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         <a href="/bookmarks/confirm-delete/<%=bookmark.title%>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                        <a href="/bookmarks/star"><i class="fa fa-star filled" aria-hidden="true"></i></a>
-
+                        <a href="/bookmarks/<%=bookmark.title %>/<%=bookmark.star%>">
+                            <% if(bookmark.star) {%>
+                                <i class="fa fa-star filled" aria-hidden="true"></i></a>
+                            <% }else{ %>
+                                <i class="fa fa-star-o" aria-hidden="true"></i></a>
+                            <% } %>
                     </div>
                 </div>
             </div>

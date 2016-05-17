@@ -45,7 +45,8 @@ module.exports.insert = function(req, res){
     ('00' + date.getUTCHours()).slice(-2) + ':' +
     ('00' + date.getUTCMinutes()).slice(-2) + ':' +
     ('00' + date.getUTCSeconds()).slice(-2);
-  if (req.body.star) star = "on";
+  if (req.body.star) star = 1;
+  else star = 0;
 
 
   var urlExpression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
