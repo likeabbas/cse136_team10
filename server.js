@@ -60,19 +60,14 @@ app.get('/sortLastVisit', bookmarks.sortLastVisit);
 
 app.get('/bookmarks/edit/:bookmark_id', bookmarks.edit);
 app.post('/bookmarks/update/:bookmark_id', bookmarks.update);
-<<<<<<< HEAD
-app.get('/bookmarks/star/:bookmark_title/:bookmark_star', bookmarks.star);
+
+app.get('/bookmarks/star/:bookmark_title/:bookmark_star(\\d)', bookmarks.star);
 
 app.get('/bookmarks/confirm-delete/:bookmark_id',bookmarks.confirmDelete);
 app.post('/bookmarks/delete/:bookmark_id',bookmarks.delete);
-
+app.post('/search', bookmarks.search);
 
 /*
-=======
-app.post('/search', bookmarks.search);
-app.get('/bookmarks/star/:bookmark_title/:bookmark_star(\\d+)', bookmarks.star);
-
->>>>>>> master
 app.get('/books', books.list);
 app.get('/books/add', books.add);
 app.get('/books/edit/:book_id(\\d+)', books.edit);
