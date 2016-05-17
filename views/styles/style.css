@@ -437,13 +437,9 @@ hr{
 #errorMessage{
     width:50%;
     margin: auto;
-    
-    color: white;
+    color: dodgerblue;
 }
 #errorMessage > h1{
     text-align: center;
 }
-#bodyError{
-    margin:0;
-    background-color: dodgerblue;
-}
+
