@@ -1,6 +1,11 @@
 var db = require('./db');
 var regex = require("regex");
 var users = require('./users');
+var error = require('./error');
+
+function sortObject(o) {
+  return Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
+}
 
 var list = module.exports.list = function(req, res) {
 
@@ -10,15 +15,41 @@ var list = module.exports.list = function(req, res) {
   // add regex to check if user is of type name@email.com
   var user = req.session.user;
   db.query('select name from user where username = '+ db.escape(user), function(err, names) {
-    console.log(names);
+    // console.log(names);
     db.query('SELECT * from bookmark where username = ' + db.escape(user), function (err, bookmarks) {
       if (err) throw err;
       // console.log(bookmarks);
       // (Select folder, title from bookmark where username = ' + db.escape(user) + ' and folder in (select folder from bookmark where username = ' + db.escape(user) + ')) union all (select name, null from folder where username = ' + db.escape(user) + ' and name not in (select folder from bookmark where username = ' + db.escape(user) + '))
       db.query('(Select folder, title, url from bookmark where username = ' + db.escape(user) + ' and folder is not null ) union (select name, null, null from folder where username = ' + db.escape(user) + ' and name not in (select folder from bookmark where username = ' + db.escape(user) + ' and folder is not null))', function (err, folders) {
         if (err) throw err;
-        console.log(folders);
-        res.render('bookmarks/list.ejs', {names: names, bookmarks: bookmarks, folders: folders});
+
+        var foldersHash = {};
+
+
+
+        for (var i = 0; i < bookmarks.length; i++) {
+          // console.log(bookmarks[i]);
+          if (bookmarks[i].folder != 'null' && bookmarks[i].folder in foldersHash) {
+            foldersHash[bookmarks[i].folder].push({"title": bookmarks[i].title, "url": bookmarks[i].url});
+          }
+          else {
+            foldersHash[bookmarks[i].folder] = [{"title": bookmarks[i].title, "url": bookmarks[i].url}]
+          }
+        }
+
+        // console.log("folders");
+        for (var i = 0; i < folders.length; i++) {
+          foldersHash[folders[i].folder] = [{"title": null, "url": null}];
+        }
+        // console.log(foldersHash);
+        // console.log("names");
+        var nameObj = {name: names[0].name};
+        // console.log(nameObj);
+
+
+
+
+        res.render('bookmarks/list.ejs', {bookmarks: bookmarks, folders: sortObject(foldersHash), name: nameObj});
       })
 
     });
@@ -117,8 +148,7 @@ module.exports.insert = function(req, res){
   var urlRegex = new RegExp(urlExpression);
   if (!url.match(urlRegex)) {
     // change all errors to specific ones
-    console.log("urlreg");
-    res.redirect('/error');
+    res.render('./errors/error', {errorType: error.url});
   }
 
 

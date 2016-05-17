@@ -33,10 +33,6 @@ app.get('/login', users.loginForm);
 app.post('/login', users.login);
 app.get('/logout', users.logout);
 
-app.get('/error', function(req, res) {
-  res.render('./views/users/error.ejs')
-
-});
 
 app.post('/newAccountForm', users.newAccountForm);
 app.post('/newAccount', users.newAccount);
