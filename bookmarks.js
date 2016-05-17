@@ -6,17 +6,18 @@ function sortObject(o) {
   return Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
 }
 
+function normalBookmarks () {
+  db.query('SELECT * from bookmark where username = ' + db.escape(user), function (err, bookmarks) {
+    if (err) throw err;
+    else return bookmarks;
+  }
+}
 
-var list = module.exports.list = function(req, res) {
-
-  console.log(req.session.user);
-  if (!req.session) res.redirect('/error');
-  //if (!req.session.user )
-  // add regex to check if user is of type name@email.com
+function bookmarks(bookmarks) {
   var user = req.session.user;
   db.query('select name from user where username = '+ db.escape(user), function(err, names) {
     // console.log(names);
-    db.query('SELECT * from bookmark where username = ' + db.escape(user), function (err, bookmarks) {
+
       if (err) throw err;
       // console.log(bookmarks);
       // (Select folder, title from bookmark where username = ' + db.escape(user) + ' and folder in (select folder from bookmark where username = ' + db.escape(user) + ')) union all (select name, null from folder where username = ' + db.escape(user) + ' and name not in (select folder from bookmark where username = ' + db.escape(user) + '))
@@ -39,7 +40,7 @@ var list = module.exports.list = function(req, res) {
 
         // console.log("folders");
         for (var i = 0; i < folders.length; i++) {
-         if(!foldersHash[folders[i].folder]) foldersHash[folders[i].folder] = [{"title": null, "url": null}];
+          if(!foldersHash[folders[i].folder]) foldersHash[folders[i].folder] = [{"title": null, "url": null}];
         }
         // console.log(foldersHash);
         // console.log("names");
@@ -52,8 +53,18 @@ var list = module.exports.list = function(req, res) {
         res.render('bookmarks/list.ejs', {bookmarks: bookmarks, folders: sortObject(foldersHash), name: nameObj});
       })
 
-    });
   });
+}
+
+
+var list = module.exports.list = function(req, res) {
+
+  console.log(req.session.user);
+  if (!req.session) res.redirect('/error');
+  //if (!req.session.user )
+  // add regex to check if user is of type name@email.com
+  bookmarks(normalBookmarks());
+
 
 };
 
