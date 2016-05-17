@@ -130,7 +130,7 @@
                         <a class="import-export-btn" href="#"><span class="glyphicon glyphicon-export"></span><p>Export</p></a>
                         <a href="/bookmarks/edit/<%=bookmark.title%>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                         <a href="/bookmarks/confirm-delete/<%=bookmark.title%>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                        <a href="/bookmarks/<%=bookmark.title %>/<%=bookmark.star%>">
+                        <a href="/bookmarks/star/<%=bookmark.title %>/<%=bookmark.star%>">
                             <% if(bookmark.star) {%>
                                 <i class="fa fa-star filled" aria-hidden="true"></i></a>
                             <% }else{ %>
