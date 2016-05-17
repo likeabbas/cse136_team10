@@ -49,7 +49,7 @@ var list = module.exports.list = function(req, res) {
 
 
 
-        res.render('bookmarks/list.ejs', {bookmarks: bookmarks, folders: sortObject(foldersHash), name: nameObj});
+        res.render('bookmarks/list.ejs', {bookmarks: bookmarks, folders: sortObject(foldersHash), name: names[0].name});
       })
 
     });
