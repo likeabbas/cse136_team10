@@ -86,10 +86,9 @@ module.exports.insert = function(req, res){
     ('00' + date.getUTCMinutes()).slice(-2) + ':' +
     ('00' + date.getUTCSeconds()).slice(-2);
   if (req.body.star) star = 1;
-<<<<<<< HEAD
+
   else star = 0;
-=======
->>>>>>> master
+
 
 
   var urlExpression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
@@ -156,7 +155,7 @@ module.exports.update = function(req,res){
     if (err) throw err;
     res.redirect('/bookmarks');
   });
-<<<<<<< HEAD
+
 }
 
 /*** Function to serve the confirmation of deleting a bookmark
@@ -185,9 +184,8 @@ module.exports.delete = function(req,res){
     if(err) throw err;
     res.redirect('/bookmarks');
   });
-}
-=======
 };
+
 
 module.exports.star = function(req, res){
   var title = req.params.bookmark_title;
@@ -205,6 +203,5 @@ module.exports.star = function(req, res){
     });
   }
 };
->>>>>>> master
 
 
