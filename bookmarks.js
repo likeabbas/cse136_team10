@@ -1,6 +1,7 @@
 var db = require('./db');
 var regex = require("regex");
 var users = require('./users');
+var error = require('./error');
 
 var list = module.exports.list = function(req, res) {
 
@@ -74,6 +75,7 @@ var list = module.exports.search = function(req,res){
 
       if(err){
         throw(err);
+        res.redirect('505.ejs');
       }
       else{
         res.render('bookmarks/list', {bookmarks: bookmarks});
@@ -89,7 +91,7 @@ module.exports.insert = function(req, res){
   // if (!req.session) res.redirect('/error');
   var user = req.session.user;
 
-  var title = db.escape(req.body.title);
+  var title = req.body.title;
   var url = db.escape(req.body.url);
   var description = db.escape(req.body.description);
   var star = 0;
@@ -111,23 +113,34 @@ module.exports.insert = function(req, res){
 
   else star = 0;
 
-
+  var titleExpression = /^[a-z0-9]+$/i;
+  var titleRegex = new RegExp(titleExpression);
 
   var urlExpression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
   var urlRegex = new RegExp(urlExpression);
-  if (!url.match(urlRegex)) {
-    // change all errors to specific ones
-    console.log("urlreg");
-    res.redirect('/error');
+  console.log("length of title" + title.length + ', ' + 'name of title: ' + title);
+  if(!titleRegex.test(title) || title.length > 20 ){
+    console.log("Error in title");
+    res.render('errors/error', {errorType : error.titleError});
   }
+  else if(!urlRegex.test(url)){
+    console.log("Error in url");
+    res.render('errors/error', {errorType : error.urlError});
+  }
+  else {
+    var queryString = 'INSERT INTO bookmark (username, title, url, description, star, tag1, tag2, tag3, tag4, creationDate, lastVisit, counter, folder) VALUES (' + db.escape(
+            user) + ', ' + db.escape(title) + ', ' + url + ', ' + description + ', ' + db.escape(star) + ', ' + db.escape(
+            tag[0]) + ', ' + db.escape(tag[1]) + ', ' + db.escape(tag[2]) + ', ' + db.escape(tag[3]) + ', ' + db.escape(
+            date) + ', ' + db.escape(date) + ', ' + db.escape(0) + ', ' + 'NULL' + ')';
 
-
-  var queryString = 'INSERT INTO bookmark (username, title, url, description, star, tag1, tag2, tag3, tag4, creationDate, lastVisit, counter, folder) VALUES (' + db.escape(user) + ', ' + title  + ', '  + url + ', ' + description + ', ' + db.escape(star) + ', ' + db.escape(tag[0]) + ', ' + db.escape(tag[1]) + ', ' + db.escape(tag[2]) + ', ' + db.escape(tag[3]) + ', ' +  db.escape(date) + ', ' + db.escape(date) + ', ' + db.escape(0) + ', ' + 'NULL' + ')';
-
-  db.query(queryString, function(err){
-    if (err) throw err;
-    res.redirect('/bookmarks');
-  });
+    db.query(queryString, function (err) {
+      if (err) {
+        throw err;
+        res.redirect('505.ejs');
+      }
+      res.redirect('/bookmarks');
+    });
+  }
 };
 
 /*** Function to serve the edit bookmark view
@@ -138,7 +151,10 @@ module.exports.insert = function(req, res){
 module.exports.edit = function(req, res) {
   var id = req.params.bookmark_id;
   db.query('SELECT * from bookmark WHERE title = ' + "'" + id + "'", function(err, bookmark) {
-    if (err) throw err;
+    if (err){
+      throw err;
+      res.redirect('505.ejs');
+    }
     res.render('bookmarks/edit', {bookmark: bookmark[0]});
   });
 };
@@ -150,7 +166,7 @@ module.exports.edit = function(req, res) {
  */
 module.exports.update = function(req,res){
   var id = req.params.bookmark_id;
-  var title = db.escape(req.body.title);
+  var title = req.body.title;
   var url = db.escape(req.body.url);
   var description = db.escape(req.body.description);
   var star = 0;
@@ -163,20 +179,34 @@ module.exports.update = function(req,res){
 
   if (req.body.star) star = "on";
 
+  var titleExpression = /^[a-z0-9]+$/i;
+  var titleRegex = new RegExp(titleExpression);
+
   var urlExpression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
   var urlRegex = new RegExp(urlExpression);
-  if (!url.match(urlRegex)) {
-    // change all errors to specific ones
-    console.log("urlreg");
-    res.redirect('/error');
-  }
 
-  var queryString = 'UPDATE bookmark SET title = ' + title + ', url = ' + url + ', description = ' + description + ', star = ' + star + ', tag1 = ' + db.escape(tag[0]) + ', tag2 = ' + db.escape(tag[1]) + ', tag3 = ' + db.escape(tag[2]) + ', tag4 = ' + db.escape(tag[3]) + 'WHERE title = ' + "'" + id + "'";
-  console.log(queryString);
-  db.query(queryString, function(err){
-    if (err) throw err;
-    res.redirect('/bookmarks');
-  });
+  console.log(titleRegex.test(title));
+  if(!titleRegex.test(title) || title.length > 20 ){
+    console.log("Error in title");
+    res.render('errors/error', {errorType : error.titleError});
+  }
+  else if(!urlRegex.test(url)){
+    console.log("Error in url");
+    res.render('errors/error', {errorType : error.urlError});
+  }
+  else {
+    var queryString = 'UPDATE bookmark SET title = ' + db.escape(title) + ', url = ' + url + ', description = ' + description + ', star = ' + star + ', tag1 = ' + db.escape(
+            tag[0]) + ', tag2 = ' + db.escape(tag[1]) + ', tag3 = ' + db.escape(tag[2]) + ', tag4 = ' + db.escape(
+            tag[3]) + 'WHERE title = ' + "'" + id + "'";
+    console.log(queryString);
+    db.query(queryString, function (err) {
+      if (err) {
+        throw err;
+        res.redirect('505.ejs');
+      }
+      res.redirect('/bookmarks');
+    });
+  }
 
 }
 
@@ -187,8 +217,12 @@ module.exports.update = function(req,res){
  */
 module.exports.confirmDelete = function(req,res){
   var id = req.params.bookmark_id;
-  db.query('SELECT * from bookmark WHERE title = ' + "'" + id + "'", function(err, bookmark) {
-    if (err) throw err;
+  console.log("id of bookmark: " + id);
+  db.query('SELECT * from bookmark WHERE title = ' + "'" + id + "'", function (err, bookmark) {
+    if (err) {
+      throw err;
+      res.redirect('505.ejs');
+    }
     res.render('bookmarks/confirm-delete', {bookmark: bookmark[0]});
   });
 
@@ -203,7 +237,10 @@ module.exports.delete = function(req,res){
   var id = req.params.bookmark_id;
   var user = req.session.user;
   db.query('DELETE FROM bookmark WHERE title =' + db.escape(id) + 'AND username =' + db.escape(user) , function(err, bookmark){
-    if(err) throw err;
+    if(err){
+      throw err;
+      res.redirect('505.ejs');
+    }
     res.redirect('/bookmarks');
   });
 };
@@ -215,13 +252,19 @@ module.exports.star = function(req, res){
 
   if (star === '0'){
     db.query('update bookmark set star=1 where title =' + db.escape(title), function(err){
-      if (err) throw err;
+      if (err){
+        throw err;
+        res.redirect('/505.ejs');
+      }
       res.redirect('/bookmarks');
     });
   }
   else{
      db.query('update bookmark set star=0 where title =' + db.escape(title), function(err){
-      if (err) throw err;
+      if (err){
+        throw err;
+        res.redirect('/505.ejs');
+      }
       res.redirect('/bookmarks');
     });
   }
