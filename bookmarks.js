@@ -19,6 +19,46 @@ var list = module.exports.list = function(req, res) {
   });
 };
 
+var list = module.exports.sortTitle = function(req, res) {
+  db.query('SELECT * from bookmark ORDER BY title', function(err, bookmarks) {
+    if (err) throw err;
+
+    res.render('bookmarks/list', {bookmarks: bookmarks});
+  });
+};
+
+var list = module.exports.sortURL = function(req, res) {
+  db.query('SELECT * from bookmark ORDER BY url', function(err, bookmarks) {
+    if (err) throw err;
+
+    res.render('bookmarks/list', {bookmarks: bookmarks});
+  });
+};
+
+var list = module.exports.sortLastVisit = function(req, res) {
+  db.query('SELECT * from bookmark ORDER BY lastVisit DESC', function(err, bookmarks) {
+    if (err) throw err;
+
+    res.render('bookmarks/list', {bookmarks: bookmarks});
+  });
+};
+
+var list = module.exports.sortCreateDate = function(req, res) {
+  db.query('SELECT * from bookmark ORDER BY creationDate', function(err, bookmarks) {
+    if (err) throw err;
+
+    res.render('bookmarks/list', {bookmarks: bookmarks});
+  });
+};
+
+var list = module.exports.sortStar = function(req, res) {
+  db.query('SELECT * from bookmark ORDER BY star DESC', function(err, bookmarks) {
+    if (err) throw err;
+
+    res.render('bookmarks/list', {bookmarks: bookmarks});
+  });
+};
+
 module.exports.add = function(req, res) {
   res.render('bookmarks/add.ejs');
 };
@@ -46,7 +86,10 @@ module.exports.insert = function(req, res){
     ('00' + date.getUTCMinutes()).slice(-2) + ':' +
     ('00' + date.getUTCSeconds()).slice(-2);
   if (req.body.star) star = 1;
+<<<<<<< HEAD
   else star = 0;
+=======
+>>>>>>> master
 
 
   var urlExpression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
@@ -113,6 +156,7 @@ module.exports.update = function(req,res){
     if (err) throw err;
     res.redirect('/bookmarks');
   });
+<<<<<<< HEAD
 }
 
 /*** Function to serve the confirmation of deleting a bookmark
@@ -142,5 +186,25 @@ module.exports.delete = function(req,res){
     res.redirect('/bookmarks');
   });
 }
+=======
+};
+
+module.exports.star = function(req, res){
+  var title = req.params.bookmark_title;
+  var star = req.params.bookmark_star;
+  if (star == 0){
+    db.query('update bookmark set star=1 where title =' + title, function(err){
+      if (err) throw err;
+      res.redirect('/bookmarks');
+    });
+  }
+  else{
+     db.query('update bookmar set star=0 where title =' + title, function(err){
+      if (err) throw err;
+      res.redirect('/bookmarks');
+    });
+  }
+};
+>>>>>>> master
 
 

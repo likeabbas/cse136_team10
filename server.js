@@ -46,8 +46,17 @@ app.get('/bookmarks', bookmarks.list);
 app.get('/bookmarks/add', bookmarks.add);
 app.post('/bookmarks/insert', bookmarks.insert);
 
+
+/*Sorting routes*/
+app.get('/sortTitle', bookmarks.sortTitle);
+app.get('/sortURL', bookmarks.sortURL);
+app.get('/sortStar', bookmarks.sortStar);
+app.get('/sortCreateDate', bookmarks.sortCreateDate);
+app.get('/sortLastVisit', bookmarks.sortLastVisit);
+
 app.get('/bookmarks/edit/:bookmark_id', bookmarks.edit);
 app.post('/bookmarks/update/:bookmark_id', bookmarks.update);
+app.get('/bookmarks/star/:bookmark_title/:bookmark_star(\\d+)', bookmarks.star);
 
 app.get('/bookmarks/confirm-delete/:bookmark_id',bookmarks.confirmDelete);
 app.post('/bookmarks/delete/:bookmark_id',bookmarks.delete);
