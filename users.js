@@ -47,7 +47,7 @@ module.exports.login = function(req, res) {
   }
   else{
     //Alert message : all the fiels have not been filled up
-    res.render('errors/error', error.form);
+    res.render('errors/error', {errorType: error.form});
   }
 };
 
