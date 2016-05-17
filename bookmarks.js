@@ -15,7 +15,13 @@ var list = module.exports.list = function(req, res) {
   db.query('SELECT * from bookmark where username = ' + db.escape(user), function (err, bookmarks) {
     if (err) throw err;
     // console.log(bookmarks);
-    res.render('bookmarks/list.ejs', {bookmarks: bookmarks});
+    // (Select folder, title from bookmark where username = ' + db.escape(user) + ' and folder in (select folder from bookmark where username = ' + db.escape(user) + ')) union all (select name, null from folder where username = ' + db.escape(user) + ' and name not in (select folder from bookmark where username = ' + db.escape(user) + '))
+    db.query('(Select folder, title, url from bookmark where username = ' + db.escape(user) + ' and folder is not null ) union (select name, null, null from folder where username = ' + db.escape(user) + ' and name not in (select folder from bookmark where username = ' + db.escape(user) + ' and folder is not null))', function (err, folders) {
+      if (err) throw err;
+      console.log(folders);
+      res.render('bookmarks/list.ejs', {bookmarks: bookmarks, folders: folders});
+    })
+
   });
 };
 
@@ -158,4 +164,23 @@ module.exports.update = function(req,res){
     if (err) throw err;
     res.redirect('/bookmarks');
   });
-}
+};
+
+module.exports.star = function(req, res){
+  var title = req.params.bookmark_title;
+  var star = req.params.bookmark_star;
+  if (star == 0){
+    db.query('update bookmark set star=1 where title =' + title, function(err){
+      if (err) throw err;
+      res.redirect('/bookmarks');
+    });
+  }
+  else{
+     db.query('update bookmar set star=0 where title =' + title, function(err){
+      if (err) throw err;
+      res.redirect('/bookmarks');
+    });
+  }
+};
+
+
