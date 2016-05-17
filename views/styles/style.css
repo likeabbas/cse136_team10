@@ -429,9 +429,10 @@ hr{
 #loginButton{
     border: none;
     color:dodgerblue;
-    background-color: white;
     font-size: 2em;
     float:right;
+    margin-top:15px;
+    margin-bottom:15px;
     
 }
 
