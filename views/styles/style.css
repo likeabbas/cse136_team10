@@ -421,7 +421,7 @@ hr{
     border:none,
     
 }
-#signin, #loginButton:hover{
+#signin:hover, #loginButton:hover{
     color:white;
     background-color: rgb(239,64,86);
     border:none;
