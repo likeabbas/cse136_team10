@@ -33,6 +33,14 @@
         <button class="btn-form" type = "button" id="cancel_add" onClick="location.href='assignment2.html'" style="float:right">CANCEL</button>
 
     </form>
+    <div id="folderContainer">
+        <h4>Folder:</h4>
+        <select class="form-control" type="text" name="folder" form="add-form"><br>
+            <% folders.forEach(function(folder) {%>
+            <option name="<%=folder.name%>" value="<%=folder.name%>"><%=folder.name%></option>
+            <% }); %>
+        </select>
+    </div>
 
 </div>
 </body>

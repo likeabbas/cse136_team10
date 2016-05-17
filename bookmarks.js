@@ -113,7 +113,12 @@ var list = module.exports.search = function(req,res){
 };
 
 module.exports.add = function(req, res) {
-  res.render('bookmarks/add.ejs');
+  var user = req.session.user;
+  db.query('select name from folder where username = ' + db.escape(user), function(err, folders) {
+    if (err) throw err;
+    res.render('bookmarks/add.ejs', {folders: folders});
+  });
+
 };
 
 module.exports.insert = function(req, res){
