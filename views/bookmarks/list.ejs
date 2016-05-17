@@ -19,7 +19,7 @@
     <p id="helloUser">Hello <em>blank</em> !</p>
     <div class="folder-wrapper">
         <div onClick="location.href='/bookmarks/add'" class="add-folder"><p>Add bookmark</p></div>
-        <h2>My List</h2>
+        <!--<h2>My List</h2>
         <table>
             <% bookmarks.forEach(function(bookmark) { %>
             <tr>
@@ -28,7 +28,7 @@
                 </td>
 
                 <td class = "icon pencil">
-                    <!--need to fix these links-->
+
                     <a href="/bookmarks/edit/<%=bookmark.title%>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                 </td>
                 <td class = "icon trash">
@@ -40,6 +40,7 @@
 
             </tr>
             <% }); %>
+            -->
 
         </table>
         <h2>Folders <a href='folder.html'><i class="fa fa-plus-square-o" aria-hidden="true"></i></a></h2>
@@ -137,7 +138,17 @@
                             <p>Link</p>
                         </div>
                     </a>
+
                     <p class="tags"><span>Tags: </span><% if(bookmark.tag1) {%><%= bookmark.tag1 %><% } %> <% if(bookmark.tag2) {%><%= bookmark.tag2%><% } %> <% if(bookmark.tag2) {%><%= bookmark.tag3%><% } %> <% if(bookmark.tag2) {%><%= bookmark.tag4%><% } %></p>
+
+                    <!--need to fix these links-->
+                    <div class = "crud-btns">
+                        <a href="/bookmarks/edit/<%=bookmark.title%>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a href="/bookmarks/confirm-delete/<%=bookmark.title%>"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                        <a href="star.html"><i class="fa fa-star filled" aria-hidden="true"></i></a>
+                    </div>
+
+
                 </div>
             </div>
             <% }); %>
