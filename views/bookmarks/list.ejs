@@ -133,13 +133,12 @@
                 <div id="facebook" class="cards">
                     <h1><%=bookmark.title%></h1>
                     <p class="bookmark-description"><%=bookmark.description%></p>
-                    <a style="text-decoration: none" href="#" target="_blank">
+                    <a style="text-decoration: none" href="<%= bookmark.url %>" target="_blank">
                         <div class="bookmark-button">
                             <p>Link</p>
                         </div>
                     </a>
-
-                    <p class="tags"><span>Tags: </span><% if(bookmark.tag1) {%><%= bookmark.tag1 %><% } %> <% if(bookmark.tag2) {%><%= bookmark.tag2%><% } %> <% if(bookmark.tag2) {%><%= bookmark.tag3%><% } %> <% if(bookmark.tag2) {%><%= bookmark.tag4%><% } %></p>
+                    <p class="tags"><span>Tags: </span><% if(bookmark.tag1) {%><%= bookmark.tag1 %><% } %>, <% if(bookmark.tag2) {%><%= bookmark.tag2%><% } %>, <% if(bookmark.tag3) {%><%= bookmark.tag3%><% } %>, <% if(bookmark.tag4) {%><%= bookmark.tag4%><% } %></p>
 
                     <!--need to fix these links-->
                     <div class = "crud-btns">
