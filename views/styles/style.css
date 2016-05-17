@@ -310,11 +310,31 @@ table a:hover	{
 }
 .import-export{
 	display:inline;
-	margin-left: 8px;
+	margin-left: 4px;
+	font-size: 12px;
 
 }
+.import-export > p{
+	display: inline;
+}
 
+.import-export-folder{
+	margin-bottom: 10px;
+}
 
+.import-export-folder > .import-export{
+	margin-left: 0;
+}
+
+.import-export-btn{
+	display:inline;
+	margin-right: 4px;
+	font-size: 10px;
+}
+
+.import-export-btn > p{
+	display: inline;
+}
 .fix-height{
 	height:33px !important;
 }
