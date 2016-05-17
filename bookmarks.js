@@ -22,6 +22,7 @@ var list = module.exports.list = function(req, res) {
       // (Select folder, title from bookmark where username = ' + db.escape(user) + ' and folder in (select folder from bookmark where username = ' + db.escape(user) + ')) union all (select name, null from folder where username = ' + db.escape(user) + ' and name not in (select folder from bookmark where username = ' + db.escape(user) + '))
       db.query('(Select folder, title, url from bookmark where username = ' + db.escape(user) + ' and folder is not null ) union (select name, null, null from folder where username = ' + db.escape(user) + ' and name not in (select folder from bookmark where username = ' + db.escape(user) + ' and folder is not null))', function (err, folders) {
         if (err) throw err;
+        console.log(folders);
 
         var foldersHash = {};
 
@@ -29,19 +30,19 @@ var list = module.exports.list = function(req, res) {
 
         for (var i = 0; i < bookmarks.length; i++) {
           // console.log(bookmarks[i]);
-          if (bookmarks[i].folder != 'null' && bookmarks[i].folder in foldersHash) {
+          if (bookmarks[i].folder != 'NULL' && bookmarks[i].folder in foldersHash) {
             foldersHash[bookmarks[i].folder].push({"title": bookmarks[i].title, "url": bookmarks[i].url});
           }
-          else {
+          else if (bookmarks[i].folder != 'NULL' && !(bookmarks[i].folder in foldersHash)) {
             foldersHash[bookmarks[i].folder] = [{"title": bookmarks[i].title, "url": bookmarks[i].url}]
           }
         }
 
         // console.log("folders");
         for (var i = 0; i < folders.length; i++) {
-          foldersHash[folders[i].folder] = [{"title": null, "url": null}];
+         if(!foldersHash[folders[i].folder]) foldersHash[folders[i].folder] = [{"title": null, "url": null}];
         }
-        // console.log(foldersHash);
+        console.log(foldersHash);
         // console.log("names");
         var nameObj = {name: names[0].name};
         // console.log(nameObj);
@@ -129,6 +130,10 @@ module.exports.insert = function(req, res){
   var url = db.escape(req.body.url);
   var description = db.escape(req.body.description);
   var star = 0;
+  var folder;
+  console.log(req.body.folder);
+  if (req.body.folder != "") folder = req.body.folder;
+  else folder = 'NULL';
 
   var tag = ['NULL', 'NULL', 'NULL', 'NULL'];
   if (req.body.tag1) tag[0] = req.body.tag1;
@@ -157,8 +162,8 @@ module.exports.insert = function(req, res){
   }
 
 
-  var queryString = 'INSERT INTO bookmark (username, title, url, description, star, tag1, tag2, tag3, tag4, creationDate, lastVisit, counter, folder) VALUES (' + db.escape(user) + ', ' + title  + ', '  + url + ', ' + description + ', ' + db.escape(star) + ', ' + db.escape(tag[0]) + ', ' + db.escape(tag[1]) + ', ' + db.escape(tag[2]) + ', ' + db.escape(tag[3]) + ', ' +  db.escape(date) + ', ' + db.escape(date) + ', ' + db.escape(0) + ', ' + 'NULL' + ')';
-
+  var queryString = 'INSERT INTO bookmark (username, title, url, description, star, tag1, tag2, tag3, tag4, creationDate, lastVisit, counter, folder) VALUES (' + db.escape(user) + ', ' + title  + ', '  + url + ', ' + description + ', ' + db.escape(star) + ', ' + db.escape(tag[0]) + ', ' + db.escape(tag[1]) + ', ' + db.escape(tag[2]) + ', ' + db.escape(tag[3]) + ', ' +  db.escape(date) + ', ' + db.escape(date) + ', ' + db.escape(0) + ', ' + db.escape(folder) + ')';
+  console.log(folder);
   db.query(queryString, function(err){
     if (err) throw err;
     res.redirect('/bookmarks');
