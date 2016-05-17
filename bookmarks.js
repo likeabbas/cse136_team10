@@ -2,13 +2,10 @@ var db = require('./db');
 var regex = require("regex");
 var users = require('./users');
 var error = require('./error');
-<<<<<<< HEAD
-=======
-
 function sortObject(o) {
   return Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
 }
->>>>>>> d2de7ee6cb802d8901f1f358d23bffadfb26298e
+
 
 var list = module.exports.list = function(req, res) {
 
@@ -156,7 +153,7 @@ module.exports.insert = function(req, res){
 
   var urlExpression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
   var urlRegex = new RegExp(urlExpression);
-<<<<<<< HEAD
+
   console.log("length of title" + title.length + ', ' + 'name of title: ' + title);
   if(!titleRegex.test(title) || title.length > 20 ){
     console.log("Error in title");
@@ -179,11 +176,11 @@ module.exports.insert = function(req, res){
       }
       res.redirect('/bookmarks');
     });
-=======
+
   if (!url.match(urlRegex)) {
     // change all errors to specific ones
     res.render('./errors/error', {errorType: error.url});
->>>>>>> d2de7ee6cb802d8901f1f358d23bffadfb26298e
+
   }
 };
 
