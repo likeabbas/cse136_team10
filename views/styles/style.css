@@ -409,7 +409,8 @@ hr{
     width:25%;
     margin: auto;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-bottom:50px;
 }
 #formLogin > h1{
     color: dodgerblue;
@@ -421,7 +422,7 @@ hr{
     border:none,
     
 }
-#signin:hover{
+#signin:hover, #loginButton:hover{
     color:white;
     background-color: rgb(239,64,86);
     border:none;
@@ -429,8 +430,19 @@ hr{
 #loginButton{
     border: none;
     color:dodgerblue;
-    background-color: white;
     font-size: 2em;
     float:right;
+    margin-top:15px;
+    margin-bottom:15px;
     
 }
+
+#errorMessage{
+    width:50%;
+    margin: auto;
+    color: dodgerblue;
+}
+#errorMessage > h1{
+    text-align: center;
+}
+

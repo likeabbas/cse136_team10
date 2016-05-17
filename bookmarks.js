@@ -2,10 +2,10 @@ var db = require('./db');
 var regex = require("regex");
 var users = require('./users');
 var error = require('./error');
-
 function sortObject(o) {
   return Object.keys(o).sort().reduce((r, k) => (r[k] = o[k], r), {});
 }
+
 
 var list = module.exports.list = function(req, res) {
 
@@ -22,7 +22,6 @@ var list = module.exports.list = function(req, res) {
       // (Select folder, title from bookmark where username = ' + db.escape(user) + ' and folder in (select folder from bookmark where username = ' + db.escape(user) + ')) union all (select name, null from folder where username = ' + db.escape(user) + ' and name not in (select folder from bookmark where username = ' + db.escape(user) + '))
       db.query('(Select folder, title, url from bookmark where username = ' + db.escape(user) + ' and folder is not null ) union (select name, null, null from folder where username = ' + db.escape(user) + ' and name not in (select folder from bookmark where username = ' + db.escape(user) + ' and folder is not null))', function (err, folders) {
         if (err) throw err;
-        console.log(folders);
 
         var foldersHash = {};
 
@@ -42,7 +41,7 @@ var list = module.exports.list = function(req, res) {
         for (var i = 0; i < folders.length; i++) {
          if(!foldersHash[folders[i].folder]) foldersHash[folders[i].folder] = [{"title": null, "url": null}];
         }
-        console.log(foldersHash);
+        // console.log(foldersHash);
         // console.log("names");
         var nameObj = {name: names[0].name};
         // console.log(nameObj);
@@ -122,18 +121,14 @@ module.exports.add = function(req, res) {
 
 };
 
-module.exports.insert = function(req, res){
+module.exports.insert = function(req, res) {
   // if (!req.session) res.redirect('/error');
   var user = req.session.user;
 
-  var title = db.escape(req.body.title);
+  var title = req.body.title;
   var url = db.escape(req.body.url);
   var description = db.escape(req.body.description);
   var star = 0;
-  var folder;
-  console.log(req.body.folder);
-  if (req.body.folder != "") folder = req.body.folder;
-  else folder = 'NULL';
 
   var tag = ['NULL', 'NULL', 'NULL', 'NULL'];
   if (req.body.tag1) tag[0] = req.body.tag1;
@@ -142,32 +137,52 @@ module.exports.insert = function(req, res){
   if (req.body.tag4) tag[3] = req.body.tag4;
 
   var date = new Date();
-  date =  date = date.getUTCFullYear() + '-' +
-    ('00' + (date.getUTCMonth() + 1)).slice(-2) + '-' +
-    ('00' + date.getUTCDate()).slice(-2) + ' ' +
-    ('00' + date.getUTCHours()).slice(-2) + ':' +
-    ('00' + date.getUTCMinutes()).slice(-2) + ':' +
-    ('00' + date.getUTCSeconds()).slice(-2);
+  date = date = date.getUTCFullYear() + '-' +
+      ('00' + (date.getUTCMonth() + 1)).slice(-2) + '-' +
+      ('00' + date.getUTCDate()).slice(-2) + ' ' +
+      ('00' + date.getUTCHours()).slice(-2) + ':' +
+      ('00' + date.getUTCMinutes()).slice(-2) + ':' +
+      ('00' + date.getUTCSeconds()).slice(-2);
   if (req.body.star) star = 1;
 
   else star = 0;
 
-
+  var titleExpression = /^[a-z0-9]+$/i;
+  var titleRegex = new RegExp(titleExpression);
 
   var urlExpression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
   var urlRegex = new RegExp(urlExpression);
-  if (!url.match(urlRegex)) {
-    // change all errors to specific ones
-    res.render('./errors/error', {errorType: error.url});
+
+  console.log("length of title" + title.length + ', ' + 'name of title: ' + title);
+  if (!titleRegex.test(title) || title.length > 20) {
+    console.log("Error in title");
+    res.render('errors/error', {errorType: error.titleError});
   }
+  else if (!urlRegex.test(url)) {
+    console.log("Error in url");
+    res.render('errors/error', {errorType: error.urlError});
+  }
+  else {
+    var queryString = 'INSERT INTO bookmark (username, title, url, description, star, tag1, tag2, tag3, tag4, creationDate, lastVisit, counter, folder) VALUES (' + db.escape(
+            user) + ', ' + db.escape(title) + ', ' + url + ', ' + description + ', ' + db.escape(
+            star) + ', ' + db.escape(
+            tag[0]) + ', ' + db.escape(tag[1]) + ', ' + db.escape(tag[2]) + ', ' + db.escape(tag[3]) + ', ' + db.escape(
+            date) + ', ' + db.escape(date) + ', ' + db.escape(0) + ', ' + 'NULL' + ')';
 
+    db.query(queryString, function (err) {
+      if (err) {
+        throw err;
+        res.redirect('505.ejs');
+      }
+      res.redirect('/bookmarks');
+    });
 
-  var queryString = 'INSERT INTO bookmark (username, title, url, description, star, tag1, tag2, tag3, tag4, creationDate, lastVisit, counter, folder) VALUES (' + db.escape(user) + ', ' + title  + ', '  + url + ', ' + description + ', ' + db.escape(star) + ', ' + db.escape(tag[0]) + ', ' + db.escape(tag[1]) + ', ' + db.escape(tag[2]) + ', ' + db.escape(tag[3]) + ', ' +  db.escape(date) + ', ' + db.escape(date) + ', ' + db.escape(0) + ', ' + db.escape(folder) + ')';
-  console.log(folder);
-  db.query(queryString, function(err){
-    if (err) throw err;
-    res.redirect('/bookmarks');
-  });
+    if (!url.match(urlRegex)) {
+      // change all errors to specific ones
+      res.render('./errors/error', {errorType: error.url});
+
+    }
+  }
 };
 
 /*** Function to serve the edit bookmark view
@@ -178,7 +193,10 @@ module.exports.insert = function(req, res){
 module.exports.edit = function(req, res) {
   var id = req.params.bookmark_id;
   db.query('SELECT * from bookmark WHERE title = ' + "'" + id + "'", function(err, bookmark) {
-    if (err) throw err;
+    if (err){
+      throw err;
+      res.redirect('505.ejs');
+    }
     res.render('bookmarks/edit', {bookmark: bookmark[0]});
   });
 };
@@ -190,7 +208,7 @@ module.exports.edit = function(req, res) {
  */
 module.exports.update = function(req,res){
   var id = req.params.bookmark_id;
-  var title = db.escape(req.body.title);
+  var title = req.body.title;
   var url = db.escape(req.body.url);
   var description = db.escape(req.body.description);
   var star = 0;
@@ -203,20 +221,34 @@ module.exports.update = function(req,res){
 
   if (req.body.star) star = "on";
 
+  var titleExpression = /^[a-z0-9]+$/i;
+  var titleRegex = new RegExp(titleExpression);
+
   var urlExpression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
   var urlRegex = new RegExp(urlExpression);
-  if (!url.match(urlRegex)) {
-    // change all errors to specific ones
-    console.log("urlreg");
-    res.redirect('/error');
-  }
 
-  var queryString = 'UPDATE bookmark SET title = ' + title + ', url = ' + url + ', description = ' + description + ', star = ' + star + ', tag1 = ' + db.escape(tag[0]) + ', tag2 = ' + db.escape(tag[1]) + ', tag3 = ' + db.escape(tag[2]) + ', tag4 = ' + db.escape(tag[3]) + 'WHERE title = ' + "'" + id + "'";
-  console.log(queryString);
-  db.query(queryString, function(err){
-    if (err) throw err;
-    res.redirect('/bookmarks');
-  });
+  console.log(titleRegex.test(title));
+  if(!titleRegex.test(title) || title.length > 20 ){
+    console.log("Error in title");
+    res.render('errors/error', {errorType : error.titleError});
+  }
+  else if(!urlRegex.test(url)){
+    console.log("Error in url");
+    res.render('errors/error', {errorType : error.urlError});
+  }
+  else {
+    var queryString = 'UPDATE bookmark SET title = ' + db.escape(title) + ', url = ' + url + ', description = ' + description + ', star = ' + star + ', tag1 = ' + db.escape(
+            tag[0]) + ', tag2 = ' + db.escape(tag[1]) + ', tag3 = ' + db.escape(tag[2]) + ', tag4 = ' + db.escape(
+            tag[3]) + 'WHERE title = ' + "'" + id + "'";
+    console.log(queryString);
+    db.query(queryString, function (err) {
+      if (err) {
+        throw err;
+        res.redirect('505.ejs');
+      }
+      res.redirect('/bookmarks');
+    });
+  }
 
 }
 
@@ -227,8 +259,12 @@ module.exports.update = function(req,res){
  */
 module.exports.confirmDelete = function(req,res){
   var id = req.params.bookmark_id;
-  db.query('SELECT * from bookmark WHERE title = ' + "'" + id + "'", function(err, bookmark) {
-    if (err) throw err;
+  console.log("id of bookmark: " + id);
+  db.query('SELECT * from bookmark WHERE title = ' + "'" + id + "'", function (err, bookmark) {
+    if (err) {
+      throw err;
+      res.redirect('505.ejs');
+    }
     res.render('bookmarks/confirm-delete', {bookmark: bookmark[0]});
   });
 
@@ -243,7 +279,10 @@ module.exports.delete = function(req,res){
   var id = req.params.bookmark_id;
   var user = req.session.user;
   db.query('DELETE FROM bookmark WHERE title =' + db.escape(id) + 'AND username =' + db.escape(user) , function(err, bookmark){
-    if(err) throw err;
+    if(err){
+      throw err;
+      res.redirect('505.ejs');
+    }
     res.redirect('/bookmarks');
   });
 };
@@ -255,13 +294,19 @@ module.exports.star = function(req, res){
 
   if (star === '0'){
     db.query('update bookmark set star=1 where title =' + db.escape(title), function(err){
-      if (err) throw err;
+      if (err){
+        throw err;
+        res.redirect('/505.ejs');
+      }
       res.redirect('/bookmarks');
     });
   }
   else{
      db.query('update bookmark set star=0 where title =' + db.escape(title), function(err){
-      if (err) throw err;
+      if (err){
+        throw err;
+        res.redirect('/505.ejs');
+      }
       res.redirect('/bookmarks');
     });
   }
