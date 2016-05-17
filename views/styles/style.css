@@ -434,3 +434,16 @@ hr{
     float:right;
     
 }
+#errorMessage{
+    width:50%;
+    margin: auto;
+    
+    color: white;
+}
+#errorMessage > h1{
+    text-align: center;
+}
+#bodyError{
+    margin:0;
+    background-color: dodgerblue;
+}
