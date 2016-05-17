@@ -1,7 +1,8 @@
-var config = require('./config');
-var db = require('./db');
 var books = require('./books');
 var bookmarks = require('./bookmarks');
+var config = require('./config');
+var db = require('./db');
+var folders = require('./folders');
 var users = require('./users');
 var md5 = require('./md5');
 
@@ -45,6 +46,9 @@ app.use(users.auth);
 app.get('/bookmarks', bookmarks.list);
 app.get('/bookmarks/add', bookmarks.add);
 app.post('/bookmarks/insert', bookmarks.insert);
+
+app.get('/folders/add', folders.add);
+app.post('/folders/insert', folders.insert);
 
 /*Sorting routes*/
 app.get('/sortTitle', bookmarks.sortTitle);
