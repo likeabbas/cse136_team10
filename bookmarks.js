@@ -13,6 +13,28 @@ function normalBookmarks () {
   }
 }
 
+function folders () {
+  db.query('(Select folder, title, url from bookmark where username = ' + db.escape(user) + ' and folder is not null ) union (select name, null, null from folder where username = ' + db.escape(user) + ' and name not in (select folder from bookmark where username = ' + db.escape(user) + ' and folder is not null))', function (err, folders) {
+    var bookmarks = normalBookmarks();
+    var foldersHash = {};
+      for (var i = 0; i < bookmarks.length; i++) {
+        // console.log(bookmarks[i]);
+        if (bookmarks[i].folder != 'NULL' && bookmarks[i].folder in foldersHash) {
+          foldersHash[bookmarks[i].folder].push({"title": bookmarks[i].title, "url": bookmarks[i].url});
+        }
+        else if (bookmarks[i].folder != 'NULL' && !(bookmarks[i].folder in foldersHash)) {
+          foldersHash[bookmarks[i].folder] = [{"title": bookmarks[i].title, "url": bookmarks[i].url}]
+        }
+      }
+
+      // console.log("folders");
+      for (var i = 0; i < folders.length; i++) {
+        if(!foldersHash[folders[i].folder]) foldersHash[folders[i].folder] = [{"title": null, "url": null}];
+      }
+      return foldersHash;
+  });
+}
+
 function bookmarks(bookmarks) {
   var user = req.session.user;
   db.query('select name from user where username = '+ db.escape(user), function(err, names) {
@@ -71,8 +93,8 @@ var list = module.exports.list = function(req, res) {
 var list = module.exports.sortTitle = function(req, res) {
   db.query('SELECT * from bookmark ORDER BY title', function(err, bookmarks) {
     if (err) throw err;
-
-    res.render('bookmarks/list', {bookmarks: bookmarks});
+    
+    res.render('bookmarks/list', {folders: sortObject(folders(), bookmarks: bookmarks});
   });
 };
 
@@ -80,7 +102,7 @@ var list = module.exports.sortURL = function(req, res) {
   db.query('SELECT * from bookmark ORDER BY url', function(err, bookmarks) {
     if (err) throw err;
 
-    res.render('bookmarks/list', {bookmarks: bookmarks});
+    res.render('bookmarks/list', {folders: sortObject(folders(), bookmarks: bookmarks});
   });
 };
 
@@ -88,7 +110,7 @@ var list = module.exports.sortLastVisit = function(req, res) {
   db.query('SELECT * from bookmark ORDER BY lastVisit DESC', function(err, bookmarks) {
     if (err) throw err;
 
-    res.render('bookmarks/list', {bookmarks: bookmarks});
+    res.render('bookmarks/list', {folders: sortObject(folders(), bookmarks: bookmarks});
   });
 };
 
@@ -96,7 +118,7 @@ var list = module.exports.sortCreateDate = function(req, res) {
   db.query('SELECT * from bookmark ORDER BY creationDate', function(err, bookmarks) {
     if (err) throw err;
 
-    res.render('bookmarks/list', {bookmarks: bookmarks});
+    res.render('bookmarks/list', {folders: sortObject(folders(), bookmarks: bookmarks});
   });
 };
 
