@@ -4,6 +4,7 @@ var books = require('./books');
 var bookmarks = require('./bookmarks');
 var users = require('./users');
 var md5 = require('./md5');
+var folders = require('./folders');
 
 db.init();
 
